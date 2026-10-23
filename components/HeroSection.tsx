@@ -1,37 +1,9 @@
-'use client'
-
-import { useState } from 'react'
 import Image from 'next/image'
-import { ArrowDownRight, ArrowRight, CheckCircle2, Download, Mail, Music2, Users, X } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, Music2, Users } from 'lucide-react'
 
 const waveform = [26, 54, 36, 72, 44, 86, 50, 68, 32, 60, 42, 78, 30, 66, 48, 90, 40, 74, 34, 58]
 
 export default function ProfileHero() {
-    const [showModal, setShowModal] = useState(false)
-    const [email, setEmail] = useState('')
-    const [submitted, setSubmitted] = useState(false)
-    const [following, setFollowing] = useState(false)
-
-    function handleFollow() {
-        if (following) {
-            setFollowing(false)
-            return
-        }
-        setShowModal(true)
-    }
-
-    function handleSubscribe(e: React.FormEvent) {
-        e.preventDefault()
-        if (!email) return
-        setSubmitted(true)
-        setFollowing(true)
-        setTimeout(() => {
-            setShowModal(false)
-            setSubmitted(false)
-            setEmail('')
-        }, 2200)
-    }
-
     return (
         <>
             <section className="relative isolate overflow-hidden border-b border-[#29323d] bg-[#0a0c10]">
@@ -61,20 +33,12 @@ export default function ProfileHero() {
                                 Luke Anthony Robert is a sound engineer and artist building honest, tactile audio for films, games, brands, and the spaces between genres. Start with free licensed music and sound effects, buy a focused pack, or bring the engineer into your session.
                             </p>
 
-                            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                            <div className="mt-8">
                                 <a
                                     href="#audio-grid"
                                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#d6a461] px-5 py-3.5 text-sm font-extrabold text-[#0a0c10] shadow-lg shadow-[#d6a461]/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b8894d]"
                                 >
                                     Browse free sounds <ArrowRight size={16} />
-                                </a>
-                                <a
-                                    href="https://buymeacoffee.com/lukerobert/extras"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#29323d] bg-[#11151b] px-5 py-3.5 text-sm font-bold text-[#d5d8dc] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#d6a461]/60 hover:bg-[#141a22]"
-                                >
-                                    <Download size={16} className="text-[#e5c58b]" /> Shop paid packs
                                 </a>
                             </div>
 
@@ -138,60 +102,14 @@ export default function ProfileHero() {
                         </div>
                     </div>
 
-                    <div className="mt-10 flex flex-col gap-4 border-t border-[#29323d] pt-5 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="mt-10 border-t border-[#29323d] pt-5">
                         <div className="flex items-center gap-2 text-sm font-semibold text-[#d5d8dc]">
                             <span className="h-2 w-2 rounded-full bg-[#d6a461] shadow-[0_0_0_4px_rgba(214,164,97,0.12)]" />
                             Free music + sound effects under a creator-friendly license
                         </div>
-                        <button
-                            id="follow-btn"
-                            onClick={handleFollow}
-                            className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-extrabold transition-all duration-200 ${following
-                                ? 'border border-[#d6a461]/60 bg-[#11151b] text-[#e5c58b]'
-                                : 'bg-[#d6a461] text-[#0a0c10] shadow-lg shadow-[#d6a461]/20 hover:-translate-y-0.5 hover:bg-[#b8894d]'
-                                }`}
-                        >
-                            {following ? <><CheckCircle2 size={15} /> Following</> : <>Follow Luke</>}
-                        </button>
                     </div>
                 </div>
             </section>
-
-            {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(false)}>
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-                    <div className="relative z-10 w-full max-w-md rounded-3xl border border-[#29323d] bg-[#11151b] p-8 shadow-2xl shadow-black/50" onClick={(e) => e.stopPropagation()}>
-                        <button onClick={() => setShowModal(false)} className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#0a0c10] text-gray-500 transition-colors hover:text-white" aria-label="Close">
-                            <X size={15} />
-                        </button>
-
-                        {submitted ? (
-                            <div className="py-6 text-center">
-                                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#d6a461]/15"><CheckCircle2 size={32} className="text-[#d6a461]" /></div>
-                                <h3 className="mb-2 text-xl font-bold text-white">You&apos;re in! 🎵</h3>
-                                <p className="text-sm text-gray-400">Welcome to the community. Watch your inbox for new drops.</p>
-                            </div>
-                        ) : (
-                            <>
-                                <div className="mb-6 flex items-center gap-3">
-                                    <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border-2 border-[#d6a461]/50"><Image src="/luke-portrait.jpg" alt="Luke Anthony Robert" fill sizes="3rem" className="object-cover" /></div>
-                                    <div><div className="text-sm font-bold text-white">Luke Robert</div><div className="text-[11px] text-[#e5c58b]">invites you to follow</div></div>
-                                </div>
-                                <div className="mb-2">
-                                    <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-[#d6a461]/30 bg-[#d6a461]/10 px-3 py-1"><Mail size={12} className="text-[#d6a461]" /><span className="text-xs font-semibold text-[#e5c58b]">Newsletter</span></div>
-                                    <h3 className="mb-2 text-2xl font-extrabold leading-snug text-white">Get new audio drops<br />every week 🎧</h3>
-                                    <p className="text-sm leading-relaxed text-gray-400">Enter your email address, become a follower and get fresh audio drops straight to your inbox — absolutely free.</p>
-                                </div>
-                                <form onSubmit={handleSubscribe} className="mt-5 space-y-3">
-                                    <div className="relative"><Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" /><input id="newsletter-email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" className="w-full rounded-xl border border-[#29323d] bg-[#0a0c10] py-3 pl-10 pr-4 text-sm text-white outline-none transition-colors placeholder:text-gray-600 focus:border-[#d6a461]" /></div>
-                                    <button id="newsletter-submit" type="submit" className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#d6a461] py-3 font-bold text-[#0a0c10] shadow-lg shadow-[#d6a461]/25 transition-all duration-200 hover:bg-[#b8894d]">Become a Follower <ArrowRight size={16} /></button>
-                                    <p className="text-center text-[11px] text-gray-600">No spam, unsubscribe anytime.</p>
-                                </form>
-                            </>
-                        )}
-                    </div>
-                </div>
-            )}
         </>
     )
 }

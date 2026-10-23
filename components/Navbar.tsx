@@ -81,15 +81,6 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <a
-                        href="https://buymeacoffee.com/lukerobert"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hidden flex-shrink-0 items-center rounded-full bg-[#d6a461] px-4 py-2.5 text-xs font-extrabold text-[#0a0c10] transition-colors hover:bg-[#e5c58b] xl:inline-flex"
-                    >
-                        Support the studio
-                    </a>
-
                     <button
                         className="rounded-lg p-2 text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4] xl:hidden"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -137,15 +128,6 @@ export default function Navbar() {
                             </a>
                         </div>
 
-                        <a
-                            href="https://buymeacoffee.com/lukerobert"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={closeMenu}
-                            className="inline-flex w-full items-center justify-center rounded-xl bg-[#d6a461] px-4 py-3 text-sm font-extrabold text-[#0a0c10] transition-colors hover:bg-[#e5c58b]"
-                        >
-                            Support the studio
-                        </a>
                     </div>
                 </div>
             )}
