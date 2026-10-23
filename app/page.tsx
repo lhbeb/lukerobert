@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import HeroSection from '@/components/HeroSection'
 import AudioOffers from '@/components/AudioOffers'
 import AudioGridPlaceholder from '@/components/AudioGridPlaceholder'
@@ -14,11 +15,13 @@ export default function HomePage() {
             <AudioOffers />
 
             {/* Latest free audio */}
-            <AudioGridPlaceholder
-                limit={4}
-                title="Latest free sounds"
-                subtitle="Licensed music, effects, textures, and ambiences ready for your projects"
-            />
+            <Suspense fallback={<div className="mx-auto max-w-7xl px-4 py-16 text-sm text-[#a8b2bd] sm:px-6 lg:px-8">Loading audio library…</div>}>
+                <AudioGridPlaceholder
+                    limit={4}
+                    title="Latest free sounds"
+                    subtitle="Licensed music, effects, textures, and ambiences ready for your projects"
+                />
+            </Suspense>
 
             {/* Support / Donation */}
             <SupportSection />
@@ -29,10 +32,12 @@ export default function HomePage() {
             </div>
 
             {/* Full free audio library */}
-            <AudioGridPlaceholder
-                title="Free sound library"
-                subtitle="Explore the full collection of music, sound effects, and sonic textures"
-            />
+            <Suspense fallback={<div className="mx-auto max-w-7xl px-4 py-16 text-sm text-[#a8b2bd] sm:px-6 lg:px-8">Loading audio library…</div>}>
+                <AudioGridPlaceholder
+                    title="Free sound library"
+                    subtitle="Explore the full collection of music, sound effects, and sonic textures"
+                />
+            </Suspense>
 
             {/* Email Subscription Links */}
             <SocialLinks />
