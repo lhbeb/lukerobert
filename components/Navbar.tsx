@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { Menu, X, Music2, Layers, ShoppingBag, Search } from 'lucide-react'
+import { Menu, X, Headphones, Archive, PackageOpen, Search } from 'lucide-react'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -49,11 +49,11 @@ export default function Navbar() {
 
                     <div className="hidden items-center gap-1 xl:flex">
                         <Link href="/" className="group/link flex items-center gap-2 rounded-lg px-3 py-2">
-                            <Music2 size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
+                            <Headphones size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
                             <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Library</span>
                         </Link>
                         <Link href="/collections" className="group/link flex items-center gap-2 rounded-lg px-3 py-2">
-                            <Layers size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
+                            <Archive size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
                             <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Collections</span>
                         </Link>
                         <a
@@ -62,7 +62,7 @@ export default function Navbar() {
                             rel="noopener noreferrer"
                             className="group/link flex items-center gap-2 rounded-lg px-3 py-2"
                         >
-                            <ShoppingBag size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
+                            <PackageOpen size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
                             <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Shop</span>
                         </a>
                     </div>
@@ -109,11 +109,11 @@ export default function Navbar() {
 
                         <div className="grid gap-1 sm:grid-cols-3">
                             <Link href="/" onClick={closeMenu} className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]">
-                                <Music2 size={16} className="text-[#d6a461]" />
+                                <Headphones size={16} className="text-[#d6a461]" />
                                 Library
                             </Link>
                             <Link href="/collections" onClick={closeMenu} className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]">
-                                <Layers size={16} className="text-[#d6a461]" />
+                                <Archive size={16} className="text-[#d6a461]" />
                                 Collections
                             </Link>
                             <a
@@ -123,7 +123,7 @@ export default function Navbar() {
                                 onClick={closeMenu}
                                 className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]"
                             >
-                                <ShoppingBag size={16} className="text-[#d6a461]" />
+                                <PackageOpen size={16} className="text-[#d6a461]" />
                                 Shop
                             </a>
                         </div>
