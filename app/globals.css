@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,93 +6,69 @@
 
 @layer base {
   :root {
-    --background: 222 20% 12%;
-    --foreground: 210 40% 98%;
-    --card: 224 19% 17%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 20% 12%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 157 100% 33%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 224 19% 20%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 224 15% 25%;
-    --muted-foreground: 217 10% 64%;
-    --accent: 157 100% 33%;
-    --accent-foreground: 0 0% 100%;
+    --background: 228 20% 5%;
+    --foreground: 38 38% 94%;
+    --card: 222 23% 10%;
+    --card-foreground: 38 38% 94%;
+    --popover: 228 20% 5%;
+    --popover-foreground: 38 38% 94%;
+    --primary: 36 58% 61%;
+    --primary-foreground: 228 20% 5%;
+    --secondary: 214 19% 16%;
+    --secondary-foreground: 38 38% 94%;
+    --muted: 214 14% 24%;
+    --muted-foreground: 214 12% 66%;
+    --accent: 204 21% 62%;
+    --accent-foreground: 228 20% 5%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 224 16% 25%;
-    --input: 224 16% 22%;
-    --ring: 157 100% 33%;
-    --radius: 0.75rem;
+    --border: 214 18% 24%;
+    --input: 214 18% 18%;
+    --ring: 36 58% 61%;
+    --radius: 0.9rem;
   }
 
-  * {
-    @apply border-[#2f3441];
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+  * { @apply border-[#29323d]; }
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-[#191c26] text-white antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-[#0a0c10] text-[#f0ece4] antialiased;
+    font-family: 'Manrope', system-ui, sans-serif;
+    background-image: radial-gradient(circle at 80% 0%, rgba(214,164,97,.12), transparent 30rem), radial-gradient(circle at 0% 35%, rgba(145,168,179,.07), transparent 26rem);
   }
 
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #191c26;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #2f3441;
-    border-radius: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #00ab6b;
-  }
+  ::selection { background: #d6a461; color: #0a0c10; }
+  ::-webkit-scrollbar { width: 7px; height: 7px; }
+  ::-webkit-scrollbar-track { background: #0a0c10; }
+  ::-webkit-scrollbar-thumb { background: #29323d; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #d6a461; }
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-[#00ab6b] hover:bg-[#009e63] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 inline-flex items-center gap-2 cursor-pointer;
-  }
-
-  .card-surface {
-    @apply bg-[#232733] border border-[#2f3441] rounded-2xl;
-  }
-
-  .section-title {
-    @apply text-2xl font-bold text-white;
-  }
-
-  .tag {
-    @apply text-xs font-semibold px-2.5 py-1 rounded-full bg-[#00ab6b]/15 text-[#00ab6b] uppercase tracking-wide;
-  }
+  .btn-primary { @apply bg-[#d6a461] hover:bg-[#b8894d] text-[#0a0c10] font-extrabold px-6 py-3 rounded-xl transition-all duration-200 inline-flex items-center gap-2 cursor-pointer; }
+  .card-surface { @apply bg-[#17182b] border border-[#29323d] rounded-2xl; }
+  .section-title { @apply text-2xl font-bold text-[#f0ece4]; }
+  .tag { @apply text-xs font-bold px-2.5 py-1 rounded-full bg-[#d6a461]/15 text-[#e5c58b] uppercase tracking-wide; }
 }
 
 @layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-[#00ab6b] to-[#00d47e] bg-clip-text text-transparent;
-  }
-
-  .glow-green {
-    box-shadow: 0 0 20px rgba(0, 171, 107, 0.25);
-  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .text-gradient { @apply bg-gradient-to-r from-[#d6a461] via-[#e5c58b] to-[#91a8b3] bg-clip-text text-transparent; }
+  .glow-brass { box-shadow: 0 0 28px rgba(214, 164, 97, 0.22); }
 }
+
+/* Re-skin legacy utility classes across secondary pages too. */
+[class*="bg-[#0a0c10]"] { background-color: #0a0c10 !important; }
+[class*="bg-[#11151b]"] { background-color: #11151b !important; }
+[class*="border-[#29323d]"] { border-color: #29323d !important; }
+[class*="bg-[#d6a461]"] { background-color: #d6a461 !important; }
+[class*="text-[#d6a461]"] { color: #e5c58b !important; }
+[class*="border-[#d6a461]"] { border-color: rgba(214,164,97,.55) !important; }
+[class*="bg-[#91a8b3]"] { background-color: #91a8b3 !important; }
+[class*="text-[#91a8b3]"] { color: #91a8b3 !important; }
+[class*="hover:bg-[#b8894d]"]:hover { background-color: #b8894d !important; }
+[class*="hover:bg-[#d6a461]"]:hover { background-color: #d6a461 !important; }
+[class*="hover:border-[#d6a461]"]:hover { border-color: rgba(214,164,97,.72) !important; }
+[class*="focus:border-[#d6a461]"]:focus { border-color: #d6a461 !important; }
+

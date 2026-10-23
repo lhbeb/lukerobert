@@ -18,7 +18,7 @@ export default function AdminPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="mb-10 flex items-start justify-between">
                 <div>
-                    <div className="flex items-center gap-2 text-[#00ab6b] text-sm font-semibold mb-3 uppercase tracking-wide">
+                    <div className="flex items-center gap-2 text-[#d6a461] text-sm font-semibold mb-3 uppercase tracking-wide">
                         <LayoutDashboard size={15} />
                         Admin Panel
                     </div>
@@ -28,7 +28,7 @@ export default function AdminPage() {
 
                 <button
                     onClick={handleSignOut}
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white bg-[#232733] hover:bg-[#2f3441] border border-[#2f3441] px-4 py-2 rounded-xl transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white bg-[#11151b] hover:bg-[#29323d] border border-[#29323d] px-4 py-2 rounded-xl transition-colors"
                 >
                     <LogOut size={16} />
                     Sign Out
@@ -36,22 +36,23 @@ export default function AdminPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Link href="/admin/upload" className="group bg-[#232733] border border-[#2f3441] hover:border-[#00ab6b]/50 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#00ab6b]/10">
-                    <div className="w-11 h-11 rounded-xl bg-[#00ab6b]/15 flex items-center justify-center mb-4 group-hover:bg-[#00ab6b]/25 transition-colors">
-                        <Upload size={20} className="text-[#00ab6b]" />
+                <Link href="/admin/upload" className="group bg-[#11151b] border border-[#29323d] hover:border-[#d6a461]/50 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#d6a461]/10">
+                    <div className="w-11 h-11 rounded-xl bg-[#d6a461]/15 flex items-center justify-center mb-4 group-hover:bg-[#d6a461]/25 transition-colors">
+                        <Upload size={20} className="text-[#d6a461]" />
                     </div>
-                    <h2 className="text-lg font-bold text-white mb-1 group-hover:text-[#00ab6b] transition-colors">Upload Audio</h2>
+                    <h2 className="text-lg font-bold text-white mb-1 group-hover:text-[#d6a461] transition-colors">Upload Audio</h2>
                     <p className="text-sm text-gray-500">Add new MP3 tracks to the library</p>
                 </Link>
 
-                <Link href="/admin/manage" className="group bg-[#232733] border border-[#2f3441] hover:border-[#00ab6b]/50 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#00ab6b]/10">
-                    <div className="w-11 h-11 rounded-xl bg-[#00ab6b]/15 flex items-center justify-center mb-4 group-hover:bg-[#00ab6b]/25 transition-colors">
-                        <ListMusic size={20} className="text-[#00ab6b]" />
+                <Link href="/admin/manage" className="group bg-[#11151b] border border-[#29323d] hover:border-[#d6a461]/50 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#d6a461]/10">
+                    <div className="w-11 h-11 rounded-xl bg-[#d6a461]/15 flex items-center justify-center mb-4 group-hover:bg-[#d6a461]/25 transition-colors">
+                        <ListMusic size={20} className="text-[#d6a461]" />
                     </div>
-                    <h2 className="text-lg font-bold text-white mb-1 group-hover:text-[#00ab6b] transition-colors">Manage Tracks</h2>
+                    <h2 className="text-lg font-bold text-white mb-1 group-hover:text-[#d6a461] transition-colors">Manage Tracks</h2>
                     <p className="text-sm text-gray-500">View, edit and delete uploaded audio</p>
                 </Link>
             </div>
         </div>
     )
 }
+

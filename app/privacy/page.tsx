@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react'
 export default function PrivacyPolicyPage() {
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#00ab6b] transition-colors mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#d6a461] transition-colors mb-8">
                 <ArrowLeft size={16} /> Back to Home
             </Link>
 
@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-8 text-gray-300 leading-relaxed">
                 <section>
                     <h2 className="text-2xl font-semibold text-white mb-4">1. Information We Collect</h2>
-                    <p>At Roxanne, we respect your privacy. Our website is designed to provide free, high-quality audio resources without requiring you to create an account or provide personal information to browse or download sounds.</p>
+                    <p>At Luke Robert, we respect your privacy. This website is designed to provide free, high-quality audio resources without requiring an account to browse or download sounds.</p>
                     <p className="mt-4">If you choose to subscribe to our newsletter, we collect your email address solely for the purpose of sending you updates about new audio drops and resources.</p>
                 </section>
 
@@ -41,3 +41,4 @@ export default function PrivacyPolicyPage() {
         </div>
     )
 }
+

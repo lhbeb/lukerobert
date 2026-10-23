@@ -66,13 +66,13 @@ export default function ManagePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             {/* Header */}
             <div className="mb-8">
-                <Link href="/admin" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#00ab6b] transition-colors mb-4">
+                <Link href="/admin" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#d6a461] transition-colors mb-4">
                     <ArrowLeft size={16} /> Back to Dashboard
                 </Link>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#00ab6b]/15 flex items-center justify-center border border-[#00ab6b]/30">
-                            <ListMusic size={18} className="text-[#00ab6b]" />
+                        <div className="w-10 h-10 rounded-xl bg-[#d6a461]/15 flex items-center justify-center border border-[#d6a461]/30">
+                            <ListMusic size={18} className="text-[#d6a461]" />
                         </div>
                         <h1 className="text-3xl font-bold text-white">Manage Tracks</h1>
                     </div>
@@ -80,7 +80,7 @@ export default function ManagePage() {
             </div>
 
             {/* List */}
-            <div className="bg-[#232733] border border-[#2f3441] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="bg-[#11151b] border border-[#29323d] rounded-2xl overflow-hidden shadow-2xl">
                 {loading ? (
                     <div className="py-20 flex flex-col justify-center items-center text-gray-500">
                         <Loader2 className="animate-spin mb-4" size={30} />
@@ -93,7 +93,7 @@ export default function ManagePage() {
                         <p className="mb-6 mt-1">You haven&apos;t uploaded any audio tracks yet.</p>
                         <Link
                             href="/admin/upload"
-                            className="inline-flex items-center justify-center bg-[#00ab6b] hover:bg-[#009e63] text-white font-semibold px-6 py-2.5 rounded-xl transition-all"
+                            className="inline-flex items-center justify-center bg-[#d6a461] hover:bg-[#b8894d] text-white font-semibold px-6 py-2.5 rounded-xl transition-all"
                         >
                             Upload First Track
                         </Link>
@@ -101,7 +101,7 @@ export default function ManagePage() {
                 ) : (
                     <div className="overflow-x-auto">
                         <table className="w-full text-left text-sm text-gray-400">
-                            <thead className="bg-[#191c26] text-gray-500 border-b border-[#2f3441]">
+                            <thead className="bg-[#0a0c10] text-gray-500 border-b border-[#29323d]">
                                 <tr>
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider text-xs">Title & Category</th>
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider text-xs">Duration</th>
@@ -109,9 +109,9 @@ export default function ManagePage() {
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider text-xs text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-[#2f3441]">
+                            <tbody className="divide-y divide-[#29323d]">
                                 {tracks.map((track) => (
-                                    <tr key={track.id} className="hover:bg-[#1f232e] transition-colors">
+                                    <tr key={track.id} className="hover:bg-[#141a22] transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="font-semibold text-white mb-1">{track.title}</div>
                                             <div className="inline-flex bg-gray-500/15 text-gray-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
@@ -145,3 +145,4 @@ export default function ManagePage() {
         </div>
     )
 }
+

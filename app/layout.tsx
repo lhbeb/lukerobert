@@ -4,15 +4,12 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-    title: 'Roxanne — Free Audio & Media Library',
-    description: 'High quality music, sound effects and media resources shared freely for creators.',
-    keywords: 'free audio, music library, sound effects, media resources, royalty free',
-    icons: {
-        icon: '/favicon.png',
-    },
+    title: 'Luke Robert — Sound Engineer & Artist',
+    description: 'Luke Anthony Robert is a sound engineer and artist sharing textured sounds, music, and creative tools for the makers who need them.',
+    keywords: 'Luke Robert, sound engineer, artist, free audio, music library, sound design',
     openGraph: {
-        title: 'Roxanne — Free Audio & Media Library',
-        description: 'High quality music, sound effects and media resources shared freely for creators.',
+        title: 'Luke Robert — Sound Engineer & Artist',
+        description: 'Sound, music, and creative tools from Luke Anthony Robert.',
         type: 'website',
     },
 }
@@ -24,7 +21,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="dark">
-            <body className="min-h-screen bg-[#191c26] text-white antialiased">
+            <body className="min-h-screen bg-[#0a0c10] text-[#f0ece4] antialiased">
                 <Navbar />
                 <main className="min-h-screen">
                     {children}
@@ -34,3 +31,4 @@ export default function RootLayout({
         </html>
     )
 }
+

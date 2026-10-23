@@ -31,12 +31,12 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#191c26]/90 border-b border-[#2f3441]">
+        <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#0a0c10]/90 border-b border-[#29323d]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 gap-4">
                     {/* Logo */}
                     <Link href="/" className="flex items-center group flex-shrink-0">
-                        <Image src="/logo.svg" alt="Roxanne" width={120} height={36} className="h-9 w-auto group-hover:opacity-80 transition-opacity" />
+                        <Image src="/logonew.svg" alt="Luke Robert" width={150} height={51} className="h-9 w-auto transition-opacity group-hover:opacity-80" priority />
                     </Link>
 
                     {/* Search bar — center */}
@@ -46,10 +46,10 @@ export default function Navbar() {
                             <input
                                 id="navbar-search"
                                 type="search"
-                                placeholder="Search tracks..."
+                                placeholder="Search sound, texture, mood..."
                                 value={query}
                                 onChange={(e) => handleSearch(e.target.value)}
-                                className="w-full bg-[#232733] border border-[#2f3441] hover:border-[#3a4050] focus:border-[#00ab6b] rounded-full pl-9 pr-4 py-2 text-sm text-white placeholder-gray-500 outline-none transition-colors"
+                                className="w-full bg-[#11151b] border border-[#29323d] hover:border-[#3b4652] focus:border-[#d6a461] rounded-full pl-9 pr-4 py-2 text-sm text-white placeholder-gray-500 outline-none transition-colors"
                             />
                         </div>
                     </div>
@@ -58,14 +58,14 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-8">
                         <Link href="/" className="flex items-center gap-1.5 font-medium group/link">
                             <Music2 size={15} className="text-gray-400 shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Browse</span>
+                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Sound library</span>
                         </Link>
                         <Link href="/collections" className="flex items-center gap-1.5 font-medium group/link">
                             <Layers size={15} className="text-gray-400 shrink-0" />
                             <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Collections</span>
                         </Link>
                         <a
-                            href="https://buymeacoffee.com/roxanneamelia/extras"
+                            href="https://buymeacoffee.com/lukerobert/extras"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-1.5 font-medium group/link"
@@ -74,19 +74,19 @@ export default function Navbar() {
                             <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Shop</span>
                         </a>
                         <a
-                            href="https://buymeacoffee.com/roxanneamelia"
+                            href="https://buymeacoffee.com/lukerobert"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center hover:opacity-80 transition-opacity"
                             aria-label="Buy Me a Coffee"
                         >
-                            <Image src="/BMC1.png" alt="Buy Me a Coffee" width={130} height={36} className="h-9 w-auto" />
+                            <span className="rounded-full bg-[#d6a461] px-4 py-2 text-xs font-extrabold text-[#0a0c10]">Buy me a coffee</span>
                         </a>
                     </div>
 
                     {/* Mobile menu button */}
                     <button
-                        className="md:hidden p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#232733] transition-colors"
+                        className="md:hidden p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#11151b] transition-colors"
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -97,33 +97,33 @@ export default function Navbar() {
 
             {/* Mobile menu */}
             {menuOpen && (
-                <div className="md:hidden border-t border-[#2f3441] bg-[#191c26]">
+                <div className="md:hidden border-t border-[#29323d] bg-[#0a0c10]">
                     <div className="px-4 py-3 flex flex-col gap-3">
                         <Link href="/" className="flex items-center gap-2 py-2 group/link" onClick={() => setMenuOpen(false)}>
-                            <Music2 size={15} className="text-[#00ab6b] shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Browse</span>
+                            <Music2 size={15} className="text-[#d6a461] shrink-0" />
+                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Sound library</span>
                         </Link>
                         <Link href="/collections" className="flex items-center gap-2 py-2 group/link" onClick={() => setMenuOpen(false)}>
-                            <Layers size={15} className="text-[#00ab6b] shrink-0" />
+                            <Layers size={15} className="text-[#d6a461] shrink-0" />
                             <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Collections</span>
                         </Link>
                         <a
-                            href="https://buymeacoffee.com/roxanneamelia/extras"
+                            href="https://buymeacoffee.com/lukerobert/extras"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 py-2 group/link"
                             onClick={() => setMenuOpen(false)}
                         >
-                            <ShoppingBag size={15} className="text-[#00ab6b] shrink-0" />
+                            <ShoppingBag size={15} className="text-[#d6a461] shrink-0" />
                             <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Shop</span>
                         </a>
                         <a
-                            href="https://buymeacoffee.com/roxanneamelia"
+                            href="https://buymeacoffee.com/lukerobert"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setMenuOpen(false)}
                         >
-                            <Image src="/BMC1.png" alt="Buy Me a Coffee" width={120} height={34} className="h-8 w-auto" />
+                            <span className="rounded-full bg-[#d6a461] px-4 py-2 text-xs font-extrabold text-[#0a0c10]">Buy me a coffee</span>
                         </a>
                     </div>
                 </div>
@@ -131,3 +131,4 @@ export default function Navbar() {
         </nav>
     )
 }
+

@@ -143,22 +143,22 @@ export default function UploadPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             {/* Header */}
             <div className="mb-8">
-                <Link href="/admin" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#00ab6b] transition-colors mb-4">
+                <Link href="/admin" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#d6a461] transition-colors mb-4">
                     <ArrowLeft size={16} /> Back to Dashboard
                 </Link>
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#00ab6b]/15 flex items-center justify-center border border-[#00ab6b]/30">
-                        <Upload size={18} className="text-[#00ab6b]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#d6a461]/15 flex items-center justify-center border border-[#d6a461]/30">
+                        <Upload size={18} className="text-[#d6a461]" />
                     </div>
                     <h1 className="text-3xl font-bold text-white">Upload Track</h1>
                 </div>
             </div>
 
             {/* Form Card */}
-            <div className="bg-[#232733] border border-[#2f3441] rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <div className="bg-[#11151b] border border-[#29323d] rounded-3xl p-6 sm:p-10 shadow-2xl">
 
                 {success && (
-                    <div className="mb-8 p-4 bg-[#00ab6b]/10 border border-[#00ab6b]/30 rounded-xl flex items-center gap-3 text-[#00d47e]">
+                    <div className="mb-8 p-4 bg-[#d6a461]/10 border border-[#d6a461]/30 rounded-xl flex items-center gap-3 text-[#91a8b3]">
                         <CheckCircle2 className="flex-shrink-0" />
                         <div>
                             <p className="font-semibold">Upload Successful!</p>
@@ -179,7 +179,7 @@ export default function UploadPage() {
                         <label className="block text-sm font-medium text-gray-300 mb-2">Audio File</label>
                         <div
                             className={`relative w-full border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center transition-colors
-                                ${file ? 'border-[#00ab6b]/50 bg-[#00ab6b]/5' : 'border-[#2f3441] hover:border-gray-500 bg-[#191c26]/50'}`}
+                                ${file ? 'border-[#d6a461]/50 bg-[#d6a461]/5' : 'border-[#29323d] hover:border-gray-500 bg-[#0a0c10]/50'}`}
                         >
                             <input
                                 type="file"
@@ -193,16 +193,16 @@ export default function UploadPage() {
 
                             {file ? (
                                 <>
-                                    <div className="w-12 h-12 rounded-full bg-[#00ab6b] text-white flex items-center justify-center shadow-lg shadow-[#00ab6b]/20 mb-3">
+                                    <div className="w-12 h-12 rounded-full bg-[#d6a461] text-white flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-3">
                                         <FileAudio size={24} />
                                     </div>
                                     <p className="text-white font-medium text-center">{file.name}</p>
                                     <p className="text-sm text-gray-500 mt-1">{(file.size / (1024 * 1024)).toFixed(2)} MB • {durationStr}</p>
-                                    <p className="text-xs text-[#00ab6b] mt-3 font-medium">Click to change file</p>
+                                    <p className="text-xs text-[#d6a461] mt-3 font-medium">Click to change file</p>
                                 </>
                             ) : (
                                 <>
-                                    <div className="w-12 h-12 rounded-full bg-[#2f3441] text-gray-400 flex items-center justify-center mb-3">
+                                    <div className="w-12 h-12 rounded-full bg-[#29323d] text-gray-400 flex items-center justify-center mb-3">
                                         <Upload size={20} />
                                     </div>
                                     <p className="text-gray-300 font-medium text-center">Click to browse or drag & drop</p>
@@ -217,7 +217,7 @@ export default function UploadPage() {
                         <label className="block text-sm font-medium text-gray-300 mb-2">Track Thumbnail (Optional)</label>
                         <div
                             className={`relative w-full border-2 border-dashed rounded-2xl p-6 flex flex-col items-center justify-center transition-colors
-                                ${thumbnailStr ? 'border-[#00ab6b]/50 bg-[#00ab6b]/5' : 'border-[#2f3441] hover:border-gray-500 bg-[#191c26]/50'}`}
+                                ${thumbnailStr ? 'border-[#d6a461]/50 bg-[#d6a461]/5' : 'border-[#29323d] hover:border-gray-500 bg-[#0a0c10]/50'}`}
                         >
                             <input
                                 type="file"
@@ -230,15 +230,15 @@ export default function UploadPage() {
 
                             {thumbnailStr ? (
                                 <>
-                                    <div className="w-10 h-10 rounded-full bg-[#00ab6b] text-white flex items-center justify-center shadow-lg shadow-[#00ab6b]/20 mb-2">
+                                    <div className="w-10 h-10 rounded-full bg-[#d6a461] text-white flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-2">
                                         <FileImage size={20} />
                                     </div>
                                     <p className="text-white font-medium text-center text-sm">{thumbnailStr.name}</p>
-                                    <p className="text-xs text-[#00ab6b] mt-2 font-medium">Click to change</p>
+                                    <p className="text-xs text-[#d6a461] mt-2 font-medium">Click to change</p>
                                 </>
                             ) : (
                                 <>
-                                    <div className="w-10 h-10 rounded-full bg-[#2f3441] text-gray-400 flex items-center justify-center mb-2">
+                                    <div className="w-10 h-10 rounded-full bg-[#29323d] text-gray-400 flex items-center justify-center mb-2">
                                         <Upload size={18} />
                                     </div>
                                     <p className="text-gray-300 font-medium text-center text-sm">Upload artwork (.webp, .jpg)</p>
@@ -257,7 +257,7 @@ export default function UploadPage() {
                                 disabled={uploading}
                                 required
                                 placeholder="e.g. Deep Forest Ambient"
-                                className="w-full bg-[#191c26] border border-[#2f3441] focus:border-[#00ab6b] rounded-xl px-4 py-3 text-white placeholder-gray-600 outline-none transition-colors"
+                                className="w-full bg-[#0a0c10] border border-[#29323d] focus:border-[#d6a461] rounded-xl px-4 py-3 text-white placeholder-gray-600 outline-none transition-colors"
                             />
                         </div>
 
@@ -267,7 +267,7 @@ export default function UploadPage() {
                                 value={category}
                                 onChange={e => setCategory(e.target.value)}
                                 disabled={uploading}
-                                className="w-full bg-[#191c26] border border-[#2f3441] focus:border-[#00ab6b] rounded-xl px-4 py-3 text-white outline-none transition-colors appearance-none"
+                                className="w-full bg-[#0a0c10] border border-[#29323d] focus:border-[#d6a461] rounded-xl px-4 py-3 text-white outline-none transition-colors appearance-none"
                             >
                                 {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
                             </select>
@@ -276,20 +276,20 @@ export default function UploadPage() {
 
                     {/* Progress Bar */}
                     {uploading && (
-                        <div className="w-full bg-[#191c26] rounded-full h-2.5 overflow-hidden">
+                        <div className="w-full bg-[#0a0c10] rounded-full h-2.5 overflow-hidden">
                             <div
-                                className="bg-[#00ab6b] h-2.5 rounded-full transition-all duration-300 ease-out"
+                                className="bg-[#d6a461] h-2.5 rounded-full transition-all duration-300 ease-out"
                                 style={{ width: `${progress}%` }}
                             />
                         </div>
                     )}
 
                     {/* Submit Button */}
-                    <div className="pt-4 border-t border-[#2f3441]">
+                    <div className="pt-4 border-t border-[#29323d]">
                         <button
                             type="submit"
                             disabled={!file || !title || uploading || success}
-                            className="w-full flex items-center justify-center gap-2 bg-[#00ab6b] hover:bg-[#009e63] disabled:opacity-50 disabled:hover:bg-[#00ab6b] text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-[#00ab6b]/20"
+                            className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#b8894d] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-[#d6a461]/20"
                         >
                             {uploading ? (
                                 <>
@@ -312,3 +312,4 @@ export default function UploadPage() {
         </div>
     )
 }
+

@@ -31,12 +31,14 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen bg-[#191c26] flex items-center justify-center p-4">
-            <div className="w-full max-w-md bg-[#232733] border border-[#2f3441] rounded-3xl p-8 sm:p-10 shadow-2xl">
+        <div className="min-h-screen bg-[#0a0c10] flex items-center justify-center p-4">
+            <div className="w-full max-w-md bg-[#11151b] border border-[#29323d] rounded-3xl p-8 sm:p-10 shadow-2xl">
 
                 {/* Logo & Header */}
                 <div className="flex flex-col items-center justify-center mb-10">
-                    <Image src="/logo.svg" alt="Roxanne" width={140} height={42} className="h-10 w-auto mb-6" />
+                            <div className="mb-6 flex items-center gap-3">
+                                <Image src="/logonew.svg" alt="Luke Robert" width={180} height={61} className="h-12 w-auto" priority />
+                            </div>
                     <h1 className="text-2xl font-bold text-white mb-2">Admin Portal</h1>
                     <p className="text-gray-400 text-sm text-center">Sign in to manage your audio library</p>
                 </div>
@@ -63,7 +65,7 @@ export default function LoginPage() {
                                 disabled={loading}
                                 required
                                 placeholder="elmahboubimehdi@gmail.com"
-                                className="w-full bg-[#191c26] border border-[#2f3441] focus:border-[#00ab6b] rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-600 outline-none transition-colors"
+                                className="w-full bg-[#0a0c10] border border-[#29323d] focus:border-[#d6a461] rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-600 outline-none transition-colors"
                             />
                         </div>
                     </div>
@@ -79,7 +81,7 @@ export default function LoginPage() {
                                 disabled={loading}
                                 required
                                 placeholder="••••••••"
-                                className="w-full bg-[#191c26] border border-[#2f3441] focus:border-[#00ab6b] rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-600 outline-none transition-colors"
+                                className="w-full bg-[#0a0c10] border border-[#29323d] focus:border-[#d6a461] rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-600 outline-none transition-colors"
                             />
                         </div>
                     </div>
@@ -87,7 +89,7 @@ export default function LoginPage() {
                     <button
                         type="submit"
                         disabled={!email || !password || loading}
-                        className="w-full flex items-center justify-center gap-2 bg-[#00ab6b] hover:bg-[#009e63] disabled:opacity-50 disabled:hover:bg-[#00ab6b] text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-[#00ab6b]/20 mt-8"
+                        className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#b8894d] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-[#d6a461]/20 mt-8"
                     >
                         {loading ? (
                             <><Loader2 className="animate-spin" size={18} /> Signing in...</>
@@ -101,3 +103,4 @@ export default function LoginPage() {
         </div>
     )
 }
+

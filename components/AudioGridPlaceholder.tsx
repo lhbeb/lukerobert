@@ -77,7 +77,7 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
 
     return (
         <div
-            className={`group bg-[#232733] border rounded-2xl p-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#00ab6b]/10 hover:-translate-y-0.5 ${isPlaying ? 'border-[#00ab6b]/60 shadow-lg shadow-[#00ab6b]/15' : 'border-[#2f3441] hover:border-[#00ab6b]/40'
+            className={`group bg-[#11151b] border rounded-2xl p-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#d6a461]/10 hover:-translate-y-0.5 ${isPlaying ? 'border-[#d6a461]/60 shadow-lg shadow-[#d6a461]/15' : 'border-[#29323d] hover:border-[#d6a461]/40'
                 }`}
         >
             {/* Hidden audio element */}
@@ -90,7 +90,7 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
             />
 
             {/* Waveform / artwork area */}
-            <div className="w-full h-24 bg-[#191c26] rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
+            <div className="w-full h-24 bg-[#0a0c10] rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
                 {/* Background image or Fake waveform bars */}
                 {track.thumbnail_url ? (
                     <img
@@ -105,7 +105,7 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
                             return (
                                 <div
                                     key={i}
-                                    className={`flex-1 rounded-full transition-colors duration-100 ${filled ? 'bg-[#00ab6b]' : isPlaying ? 'bg-[#00ab6b]/30' : 'bg-[#2f3441]'
+                                    className={`flex-1 rounded-full transition-colors duration-100 ${filled ? 'bg-[#d6a461]' : isPlaying ? 'bg-[#d6a461]/30' : 'bg-[#29323d]'
                                         }`}
                                     style={{ height }}
                                 />
@@ -122,8 +122,8 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
                     id={`play-btn-${track.id}`}
                     onClick={() => onPlay(isPlaying ? null : track.id)}
                     className={`relative z-10 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 group-hover:scale-110 ${isPlaying
-                        ? 'bg-[#00ab6b] shadow-[#00ab6b]/40'
-                        : 'bg-[#00ab6b] hover:bg-[#009e63] shadow-[#00ab6b]/30'
+                        ? 'bg-[#d6a461] shadow-[#d6a461]/40'
+                        : 'bg-[#d6a461] hover:bg-[#b8894d] shadow-[#d6a461]/30'
                         }`}
                     aria-label={isPlaying ? `Pause ${track.title}` : `Play ${track.title}`}
                 >
@@ -136,18 +136,18 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
 
             {/* Progress bar */}
             <div
-                className="w-full h-1 bg-[#2f3441] rounded-full mb-3 cursor-pointer group/bar relative"
+                className="w-full h-1 bg-[#29323d] rounded-full mb-3 cursor-pointer group/bar relative"
                 onClick={handleSeek}
             >
                 <div
-                    className="h-full bg-[#00ab6b] rounded-full transition-all duration-100 group-hover/bar:bg-[#00d47e]"
+                    className="h-full bg-[#d6a461] rounded-full transition-all duration-100 group-hover/bar:bg-[#91a8b3]"
                     style={{ width: `${progress}%` }}
                 />
             </div>
 
             {/* Track info */}
             <div className="space-y-1.5">
-                <h3 className={`font-semibold text-sm leading-snug line-clamp-1 transition-colors ${isPlaying ? 'text-[#00ab6b]' : 'text-white group-hover:text-[#00ab6b]'}`}>
+                <h3 className={`font-semibold text-sm leading-snug line-clamp-1 transition-colors ${isPlaying ? 'text-[#d6a461]' : 'text-white group-hover:text-[#d6a461]'}`}>
                     {track.title}
                 </h3>
                 <div className="flex items-center justify-between">
@@ -164,7 +164,7 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
                 <button
                     id={`download-btn-${track.id}`}
                     onClick={handleDownload}
-                    className="mt-2 w-full inline-flex items-center justify-center gap-1.5 bg-[#191c26] hover:bg-[#00ab6b]/10 border border-[#2f3441] hover:border-[#00ab6b]/50 text-gray-400 hover:text-[#00ab6b] text-xs font-medium py-2 rounded-xl transition-all duration-200"
+                    className="mt-2 w-full inline-flex items-center justify-center gap-1.5 bg-[#0a0c10] hover:bg-[#d6a461]/10 border border-[#29323d] hover:border-[#d6a461]/50 text-gray-400 hover:text-[#d6a461] text-xs font-medium py-2 rounded-xl transition-all duration-200"
                     aria-label={`Download ${track.title}`}
                 >
                     <Download size={12} />
@@ -229,8 +229,8 @@ export default function AudioGridPlaceholder({
                         {query ? `${filteredTracks.length} track${filteredTracks.length !== 1 ? 's' : ''} found` : subtitle}
                     </p>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#232733] border border-[#2f3441] rounded-full px-3 py-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00ab6b] animate-pulse" />
+                <div className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#11151b] border border-[#29323d] rounded-full px-3 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#d6a461] animate-pulse" />
                     {activeId ? 'Playing' : 'Live'}
                 </div>
             </div>
@@ -245,7 +245,7 @@ export default function AudioGridPlaceholder({
 
             {/* No results */}
             {!loading && filteredTracks.length === 0 && (
-                <div className="text-center py-20 text-gray-500 border border-[#2f3441] border-dashed rounded-3xl bg-[#191c26]/50">
+                <div className="text-center py-20 text-gray-500 border border-[#29323d] border-dashed rounded-3xl bg-[#0a0c10]/50">
                     <p className="text-lg font-medium text-white mb-1">No tracks found</p>
                     <p className="text-sm">
                         {query ? "Try a different keyword or browse all tracks." : "There are currently no tracks in the database."}
@@ -269,3 +269,4 @@ export default function AudioGridPlaceholder({
         </section>
     )
 }
+

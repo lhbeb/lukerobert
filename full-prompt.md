@@ -343,10 +343,10 @@ BRANDING AND DESIGN SYSTEM
 --------------------------------
 
 Primary brand color:
-#00ab6b (green)
+#d6a461 (brass)
 
 Dark background color:
-#191c26
+#0a0c10
 
 Design style:
 modern
@@ -359,24 +359,24 @@ Use these colors consistently across the site.
 Color roles:
 
 Primary:
-#00ab6b
+#d6a461
 
 Primary hover:
-#009e63
+#b8894d
 
 Background:
-#191c26
+#0a0c10
 
 Card background:
-#232733
+#11151b
 
 Muted text:
 #9ca3af
 
 Border color:
-#2f3441
+#29323d
 
-Buttons should use the primary green color.
+Buttons should use the primary brass color.
 
 The overall aesthetic should resemble a modern creator media library.
 
@@ -399,7 +399,7 @@ CTA buttons:
 Browse Audio
 Support the Creator
 
-The hero background should use the dark theme (#191c26).
+The hero background should use the dark theme (#0a0c10).
 
 --------------------------------
 
@@ -409,7 +409,7 @@ The site must include a dedicated support section encouraging donations.
 
 This section should appear toward the bottom of the homepage.
 
-Use a visually distinct card or container using the green brand color.
+Use a visually distinct card or container using the brass brand color.
 
 Title:
 
@@ -436,7 +436,7 @@ Support on BuyMeACoffee
 Visit Shop
 Follow on YouTube
 
-Use prominent green buttons (#00ab6b).
+Use prominent brass buttons (#d6a461).
 
 --------------------------------
 
@@ -501,7 +501,7 @@ Cards should have subtle hover effects.
 When hovered:
 
 slight elevation
-border highlight using #00ab6b
+border highlight using #d6a461
 
 --------------------------------
 
@@ -551,4 +551,3 @@ Continue implementing the project phase-by-phase as previously described.
 Do not skip phases.
 
 Use placeholder audio files first before implementing Supabase.
-

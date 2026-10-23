@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react'
 export default function TermsOfServicePage() {
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#00ab6b] transition-colors mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#d6a461] transition-colors mb-8">
                 <ArrowLeft size={16} /> Back to Home
             </Link>
 
@@ -14,12 +14,12 @@ export default function TermsOfServicePage() {
             <div className="space-y-8 text-gray-300 leading-relaxed">
                 <section>
                     <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
-                    <p>By accessing and using Roxanne ("we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please refrain from using our website.</p>
+                    <p>By accessing and using Luke Robert ("we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please refrain from using our website.</p>
                 </section>
 
                 <section>
                     <h2 className="text-2xl font-semibold text-white mb-4">2. Use of Audio Assets</h2>
-                    <p>The core purpose of Roxanne is to provide audio assets for creators. Unless explicitly stated otherwise on the individual track page, all audio assets downloaded from our platform are subject to our <Link href="/license" className="text-[#00ab6b] hover:underline">Audio Licensing Agreement</Link>, which grants you specific rights to use the audio in your projects while prohibiting the resale or redistribution of the raw files.</p>
+                    <p>The core purpose of Luke Robert is to provide audio assets for creators. Unless explicitly stated otherwise on the individual track page, all audio assets downloaded from our platform are subject to our <Link href="/license" className="text-[#d6a461] hover:underline">Audio Licensing Agreement</Link>, which grants you specific rights to use the audio in your projects while prohibiting the resale or redistribution of the raw files.</p>
                 </section>
 
                 <section>
@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
 
                 <section>
                     <h2 className="text-2xl font-semibold text-white mb-4">5. Limitation of Liability</h2>
-                    <p>In no event shall Roxanne or its creator be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website or our audio assets. All assets are provided "as is" without warranty of any kind.</p>
+                    <p>In no event shall Luke Robert or its creator be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website or our audio assets. All assets are provided "as is" without warranty of any kind.</p>
                 </section>
 
                 <section>
@@ -45,3 +45,4 @@ export default function TermsOfServicePage() {
         </div>
     )
 }
+

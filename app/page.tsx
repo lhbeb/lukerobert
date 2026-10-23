@@ -1,4 +1,5 @@
 import HeroSection from '@/components/HeroSection'
+import AudioOffers from '@/components/AudioOffers'
 import AudioGridPlaceholder from '@/components/AudioGridPlaceholder'
 import SupportSection from '@/components/SupportSection'
 import SocialLinks from '@/components/SocialLinks'
@@ -9,11 +10,14 @@ export default function HomePage() {
             {/* Profile Hero (cover + avatar + follow) */}
             <HeroSection />
 
-            {/* Latest 4 Audio Tracks */}
+            {/* Clear entry points for free library, paid packs, and engineering work */}
+            <AudioOffers />
+
+            {/* Latest free audio */}
             <AudioGridPlaceholder
                 limit={4}
-                title="Latest Tracks"
-                subtitle="Freshly added audio for your projects"
+                title="Latest free sounds"
+                subtitle="Licensed music, effects, textures, and ambiences ready for your projects"
             />
 
             {/* Support / Donation */}
@@ -21,13 +25,13 @@ export default function HomePage() {
 
             {/* Divider */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 mt-8">
-                <div className="border-t border-[#2f3441]" />
+                <div className="border-t border-[#29323d]" />
             </div>
 
-            {/* Full Audio Library */}
+            {/* Full free audio library */}
             <AudioGridPlaceholder
-                title="Full Audio Library"
-                subtitle="Download premium, royalty-free audio tracks for your creative projects."
+                title="Free sound library"
+                subtitle="Explore the full collection of music, sound effects, and sonic textures"
             />
 
             {/* Email Subscription Links */}
@@ -35,3 +39,4 @@ export default function HomePage() {
         </div>
     )
 }
+

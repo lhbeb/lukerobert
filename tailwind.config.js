@@ -18,12 +18,12 @@ module.exports = {
         extend: {
             colors: {
                 brand: {
-                    DEFAULT: "#00ab6b",
-                    hover: "#009e63",
+                    DEFAULT: "#d6a461",
+                    hover: "#b8894d",
                 },
-                surface: "#191c26",
-                "card-bg": "#232733",
-                "border-col": "#2f3441",
+                surface: "#0a0c10",
+                "card-bg": "#17182b",
+                "border-col": "#29323d",
                 muted: "#9ca3af",
                 // shadcn CSS variable tokens
                 background: "hsl(var(--background))",
@@ -59,7 +59,7 @@ module.exports = {
                 sm: "calc(var(--radius) - 4px)",
             },
             fontFamily: {
-                sans: ["Inter", "system-ui", "sans-serif"],
+                sans: ["Manrope", "system-ui", "sans-serif"],
             },
             keyframes: {
                 "accordion-down": {
@@ -89,3 +89,4 @@ module.exports = {
     },
     plugins: [],
 }
+
