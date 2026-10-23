@@ -13,10 +13,9 @@ export default function Navbar() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
 
-    // Sync input with URL on mount
     useEffect(() => {
         setQuery(searchParams.get('q') ?? '')
-    }, [])
+    }, [searchParams])
 
     function handleSearch(value: string) {
         setQuery(value)
@@ -26,104 +25,126 @@ export default function Navbar() {
         } else {
             params.delete('q')
         }
-        const target = pathname === '/' ? `/?${params}` : `/?${params}`
-        router.replace(target, { scroll: false })
+        router.replace(`${pathname === '/' ? '/' : '/'}?${params}`, { scroll: false })
+    }
+
+    function closeMenu() {
+        setMenuOpen(false)
     }
 
     return (
-        <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#0a0c10]/90 border-b border-[#29323d]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16 gap-4">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center group flex-shrink-0">
-                        <Image src="/logonew.svg" alt="Luke Robert" width={150} height={51} className="h-9 w-auto transition-opacity group-hover:opacity-80" priority />
+        <nav className="sticky top-0 z-50 border-b border-[#29323d] bg-[#0a0c10]/95 backdrop-blur-xl">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex min-h-[4.5rem] items-center gap-4 xl:gap-6">
+                    <Link href="/" className="group flex flex-shrink-0 items-center" aria-label="Luke Robert home">
+                        <Image
+                            src="/logonew.svg"
+                            alt="Luke Robert"
+                            width={136}
+                            height={45}
+                            className="h-8 w-auto transition-opacity group-hover:opacity-80 sm:h-9"
+                            priority
+                        />
                     </Link>
 
-                    {/* Search bar — center */}
-                    <div className="hidden md:flex flex-1 max-w-sm mx-auto">
+                    <div className="hidden items-center gap-1 xl:flex">
+                        <Link href="/" className="group/link flex items-center gap-2 rounded-lg px-3 py-2">
+                            <Music2 size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
+                            <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Library</span>
+                        </Link>
+                        <Link href="/collections" className="group/link flex items-center gap-2 rounded-lg px-3 py-2">
+                            <Layers size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
+                            <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Collections</span>
+                        </Link>
+                        <a
+                            href="https://buymeacoffee.com/lukerobert/extras"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link flex items-center gap-2 rounded-lg px-3 py-2"
+                        >
+                            <ShoppingBag size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
+                            <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Shop</span>
+                        </a>
+                    </div>
+
+                    <div className="ml-auto hidden w-full max-w-[19rem] md:flex xl:max-w-[22rem]">
                         <div className="relative w-full">
-                            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+                            <Search size={15} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#a8b2bd]" />
                             <input
                                 id="navbar-search"
                                 type="search"
-                                placeholder="Search sound, texture, mood..."
+                                placeholder="Search the library"
                                 value={query}
                                 onChange={(e) => handleSearch(e.target.value)}
-                                className="w-full bg-[#11151b] border border-[#29323d] hover:border-[#3b4652] focus:border-[#d6a461] rounded-full pl-9 pr-4 py-2 text-sm text-white placeholder-gray-500 outline-none transition-colors"
+                                className="w-full rounded-full border border-[#29323d] bg-[#11151b] py-2.5 pl-10 pr-4 text-sm text-[#f0ece4] outline-none transition-colors placeholder:text-[#89929d] hover:border-[#3b4652] focus:border-[#d6a461]"
                             />
                         </div>
                     </div>
 
-                    {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-8">
-                        <Link href="/" className="flex items-center gap-1.5 font-medium group/link">
-                            <Music2 size={15} className="text-gray-400 shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Sound library</span>
-                        </Link>
-                        <Link href="/collections" className="flex items-center gap-1.5 font-medium group/link">
-                            <Layers size={15} className="text-gray-400 shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Collections</span>
-                        </Link>
-                        <a
-                            href="https://buymeacoffee.com/lukerobert/extras"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 font-medium group/link"
-                        >
-                            <ShoppingBag size={15} className="text-gray-400 shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Shop</span>
-                        </a>
-                        <a
-                            href="https://buymeacoffee.com/lukerobert"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center hover:opacity-80 transition-opacity"
-                            aria-label="Buy Me a Coffee"
-                        >
-                            <span className="rounded-full bg-[#d6a461] px-4 py-2 text-xs font-extrabold text-[#0a0c10]">Buy me a coffee</span>
-                        </a>
-                    </div>
-
-                    {/* Mobile menu button */}
-                    <button
-                        className="md:hidden p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#11151b] transition-colors"
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label="Toggle menu"
+                    <a
+                        href="https://buymeacoffee.com/lukerobert"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden flex-shrink-0 items-center rounded-full bg-[#d6a461] px-4 py-2.5 text-xs font-extrabold text-[#0a0c10] transition-colors hover:bg-[#e5c58b] xl:inline-flex"
                     >
-                        {menuOpen ? <X size={20} /> : <Menu size={20} />}
+                        Support the studio
+                    </a>
+
+                    <button
+                        className="rounded-lg p-2 text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4] xl:hidden"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={menuOpen}
+                    >
+                        {menuOpen ? <X size={21} /> : <Menu size={21} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile menu */}
             {menuOpen && (
-                <div className="md:hidden border-t border-[#29323d] bg-[#0a0c10]">
-                    <div className="px-4 py-3 flex flex-col gap-3">
-                        <Link href="/" className="flex items-center gap-2 py-2 group/link" onClick={() => setMenuOpen(false)}>
-                            <Music2 size={15} className="text-[#d6a461] shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Sound library</span>
-                        </Link>
-                        <Link href="/collections" className="flex items-center gap-2 py-2 group/link" onClick={() => setMenuOpen(false)}>
-                            <Layers size={15} className="text-[#d6a461] shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Collections</span>
-                        </Link>
-                        <a
-                            href="https://buymeacoffee.com/lukerobert/extras"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 py-2 group/link"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            <ShoppingBag size={15} className="text-[#d6a461] shrink-0" />
-                            <span className="text-sm text-gray-300 group-hover/link:text-white transition-colors">Shop</span>
-                        </a>
+                <div className="border-t border-[#29323d] bg-[#0a0c10] xl:hidden">
+                    <div className="mx-auto max-w-7xl space-y-4 px-4 py-4 sm:px-6 lg:px-8">
+                        <div className="relative md:hidden">
+                            <Search size={15} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#a8b2bd]" />
+                            <input
+                                id="mobile-navbar-search"
+                                type="search"
+                                placeholder="Search the library"
+                                value={query}
+                                onChange={(e) => handleSearch(e.target.value)}
+                                className="w-full rounded-xl border border-[#29323d] bg-[#11151b] py-3 pl-10 pr-4 text-sm text-[#f0ece4] outline-none transition-colors placeholder:text-[#89929d] focus:border-[#d6a461]"
+                            />
+                        </div>
+
+                        <div className="grid gap-1 sm:grid-cols-3">
+                            <Link href="/" onClick={closeMenu} className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]">
+                                <Music2 size={16} className="text-[#d6a461]" />
+                                Library
+                            </Link>
+                            <Link href="/collections" onClick={closeMenu} className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]">
+                                <Layers size={16} className="text-[#d6a461]" />
+                                Collections
+                            </Link>
+                            <a
+                                href="https://buymeacoffee.com/lukerobert/extras"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={closeMenu}
+                                className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]"
+                            >
+                                <ShoppingBag size={16} className="text-[#d6a461]" />
+                                Shop
+                            </a>
+                        </div>
+
                         <a
                             href="https://buymeacoffee.com/lukerobert"
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={() => setMenuOpen(false)}
+                            onClick={closeMenu}
+                            className="inline-flex w-full items-center justify-center rounded-xl bg-[#d6a461] px-4 py-3 text-sm font-extrabold text-[#0a0c10] transition-colors hover:bg-[#e5c58b]"
                         >
-                            <span className="rounded-full bg-[#d6a461] px-4 py-2 text-xs font-extrabold text-[#0a0c10]">Buy me a coffee</span>
+                            Support the studio
                         </a>
                     </div>
                 </div>
@@ -131,4 +152,3 @@ export default function Navbar() {
         </nav>
     )
 }
-
