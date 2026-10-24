@@ -193,6 +193,18 @@ export default function AudioGridPlaceholder({
     useEffect(() => {
         async function fetchTracks() {
             setLoading(true)
+            try {
+                const res = await fetch('/api/tracks')
+                const json = await res.json()
+                if (res.ok && Array.isArray(json.tracks)) {
+                    setTracks(json.tracks)
+                    setLoading(false)
+                    return
+                }
+            } catch {
+                // fall through to Supabase
+            }
+
             const { data, error } = await supabase.from('tracks').select('*').order('created_at', { ascending: false })
             if (!error && data) {
                 setTracks(data)

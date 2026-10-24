@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 import { supabaseAdmin } from '@/lib/supabase-admin'
 
 export async function POST(request: NextRequest) {
@@ -19,24 +21,37 @@ export async function POST(request: NextRequest) {
         const arrayBuffer = await file.arrayBuffer()
         const buffer = Buffer.from(arrayBuffer)
 
-        const { error: uploadError } = await supabaseAdmin.storage
-            .from('audio')
-            .upload(filePath, buffer, {
-                contentType: file.type || 'audio/mpeg',
-                cacheControl: '3600',
-                upsert: true,
-            })
+        // 1. Try Supabase Storage first
+        try {
+            const { error: uploadError } = await supabaseAdmin.storage
+                .from('audio')
+                .upload(filePath, buffer, {
+                    contentType: file.type || 'audio/mpeg',
+                    cacheControl: '3600',
+                    upsert: true,
+                })
 
-        if (uploadError) {
-            return NextResponse.json({ error: uploadError.message }, { status: 500 })
+            if (!uploadError) {
+                const { data: { publicUrl } } = supabaseAdmin.storage
+                    .from('audio')
+                    .getPublicUrl(filePath)
+
+                return NextResponse.json({ success: true, publicUrl })
+            }
+        } catch {
+            // fall through to local storage
         }
 
-        const { data: { publicUrl } } = supabaseAdmin.storage
-            .from('audio')
-            .getPublicUrl(filePath)
+        // 2. Fall back to local file storage under public/uploads
+        const localDestPath = path.join(process.cwd(), 'public', 'uploads', filePath)
+        fs.mkdirSync(path.dirname(localDestPath), { recursive: true })
+        fs.writeFileSync(localDestPath, buffer)
 
-        return NextResponse.json({ success: true, publicUrl })
+        const localPublicUrl = `/uploads/${filePath}`
+        return NextResponse.json({ success: true, publicUrl: localPublicUrl })
+
     } catch (err: any) {
+        console.error('Upload handler error:', err)
         return NextResponse.json({ error: err.message || 'Upload failed' }, { status: 500 })
     }
 }
