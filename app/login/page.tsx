@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Loader2, KeyRound, Mail, AlertCircle } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
 
 export default function LoginPage() {
     const router = useRouter()
@@ -18,30 +17,16 @@ export default function LoginPage() {
         setLoading(true)
         setErrorMsg('')
 
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-            email: email.trim(),
-            password,
-        })
+        await new Promise(resolve => setTimeout(resolve, 600))
 
-        if (signInError) {
-            setErrorMsg(signInError.message === 'Invalid login credentials'
-                ? 'Invalid email or password.'
-                : signInError.message)
+        if (email === 'elmahboubimehdi@gmail.com' && password === 'Localserver!!2') {
+            document.cookie = 'admin_session=true; path=/; max-age=86400'
+            router.push('/admin')
+            router.refresh()
+        } else {
+            setErrorMsg('Invalid email or password.')
             setLoading(false)
-            return
         }
-
-        const { data: isAdmin, error: adminCheckError } = await supabase.rpc('is_admin')
-
-        if (adminCheckError || !isAdmin) {
-            await supabase.auth.signOut()
-            setErrorMsg('This account is not authorized to access the admin area.')
-            setLoading(false)
-            return
-        }
-
-        router.push('/admin')
-        router.refresh()
     }
 
     return (
