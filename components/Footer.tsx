@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heart } from 'lucide-react'
+import { Coffee, Heart } from 'lucide-react'
 
 export default function Footer() {
     return (
@@ -17,6 +17,10 @@ export default function Footer() {
                         </p>
                         <a href="https://lukerobert.me" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-xs font-bold uppercase tracking-[0.18em] text-[#91a8b3] hover:text-[#f0ece4] transition-colors">
                             lukerobert.me ↗
+                        </a>
+                        <a href="https://buymeacoffee.com/lukerobert" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#d6a461] hover:text-[#f0ece4] transition-colors">
+                            <Coffee size={13} />
+                            Support Luke&apos;s work ↗
                         </a>
                     </div>
 

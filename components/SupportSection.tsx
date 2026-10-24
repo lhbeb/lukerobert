@@ -57,7 +57,10 @@ export default function SupportSection() {
                         <div className="flex flex-col sm:flex-row gap-3">
                             <a
                                 href="https://buymeacoffee.com/lukerobert"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 id="support-buymeacoffee-btn"
+                                aria-label="Support Luke Robert on Buy Me a Coffee"
                                 className="inline-flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#b8894d] text-[#0a0c10] font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 text-sm shadow-lg shadow-[#d6a461]/25 hover:scale-105"
                             >
                                 <Coffee size={17} />

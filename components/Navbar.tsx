@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { Menu, X, Headphones, Archive, PackageOpen, Search } from 'lucide-react'
+import { Menu, X, Headphones, Archive, PackageOpen, Coffee, Search } from 'lucide-react'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -65,6 +65,15 @@ export default function Navbar() {
                             <PackageOpen size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
                             <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Shop</span>
                         </a>
+                        <a
+                            href="https://buymeacoffee.com/lukerobert"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link flex items-center gap-2 rounded-lg px-3 py-2"
+                        >
+                            <Coffee size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
+                            <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Support</span>
+                        </a>
                     </div>
 
                     <div className="ml-auto hidden w-full max-w-[19rem] md:flex xl:max-w-[22rem]">
@@ -107,7 +116,7 @@ export default function Navbar() {
                             />
                         </div>
 
-                        <div className="grid gap-1 sm:grid-cols-3">
+                        <div className="grid gap-1 sm:grid-cols-4">
                             <Link href="/" onClick={closeMenu} className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]">
                                 <Headphones size={16} className="text-[#d6a461]" />
                                 Library
@@ -125,6 +134,16 @@ export default function Navbar() {
                             >
                                 <PackageOpen size={16} className="text-[#d6a461]" />
                                 Shop
+                            </a>
+                            <a
+                                href="https://buymeacoffee.com/lukerobert"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={closeMenu}
+                                className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]"
+                            >
+                                <Coffee size={16} className="text-[#d6a461]" />
+                                Support
                             </a>
                         </div>
 
