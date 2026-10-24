@@ -6,7 +6,46 @@ import Link from 'next/link'
 import { Upload, FileAudio, FileImage, CheckCircle2, ArrowLeft, Loader2, Play } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
-const CATEGORIES = ['Ambient', 'Nature', 'Meditation', 'Spiritual', 'Electronic', 'Acoustic', 'Cinematic', 'Lo-Fi', 'Sound Effect']
+const CATEGORY_SUGGESTIONS = [
+    'Music',
+    'Beat',
+    'Rap',
+    'Hip-Hop',
+    'Pop',
+    'R&B',
+    'Soul',
+    'Jazz',
+    'Rock',
+    'Acoustic',
+    'Electronic',
+    'Lo-Fi',
+    'Cinematic',
+    'Ambient',
+    'Drone',
+    'Instrumental',
+    'Vocal',
+    'Percussion',
+    'Nature',
+    'Water',
+    'Rain',
+    'Wind',
+    'Fire',
+    'Field Recording',
+    'Foley',
+    'Sound Effect',
+    'Voice',
+    'Podcast',
+    'Texture',
+    'Meditation',
+    'Spiritual',
+    'Game Audio',
+    'Film Audio',
+    'Atmosphere',
+    'Transition',
+    'Impact',
+    'UI Sound',
+    'Other',
+]
 
 export default function UploadPage() {
     const router = useRouter()
@@ -16,7 +55,7 @@ export default function UploadPage() {
     const [thumbnailStr, setThumbnailStr] = useState<File | null>(null)
     const thumbnailInputRef = useRef<HTMLInputElement>(null)
     const [title, setTitle] = useState('')
-    const [category, setCategory] = useState(CATEGORIES[0])
+    const [category, setCategory] = useState('')
 
     // Status
     const [uploading, setUploading] = useState(false)
@@ -308,15 +347,23 @@ export default function UploadPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Category</label>
-                            <select
+                            <label className="text-sm font-medium text-gray-300">Category or tag</label>
+                            <input
+                                type="text"
                                 value={category}
                                 onChange={e => setCategory(e.target.value)}
                                 disabled={uploading}
-                                className="w-full bg-[#0a0c10] border border-[#29323d] focus:border-[#d6a461] rounded-xl px-4 py-3 text-white outline-none transition-colors appearance-none"
-                            >
-                                {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                            </select>
+                                required
+                                list="audio-category-options"
+                                autoComplete="off"
+                                placeholder="e.g. Rap beat, rain, field recording"
+                                className="w-full bg-[#0a0c10] border border-[#29323d] focus:border-[#d6a461] rounded-xl px-4 py-3 text-white placeholder-gray-600 outline-none transition-colors"
+                            />
+                            <datalist id="audio-category-options">
+                                {CATEGORY_SUGGESTIONS.map(suggestion => (
+                                    <option key={suggestion} value={suggestion} />
+                                ))}
+                            </datalist>
                         </div>
                     </div>
 
