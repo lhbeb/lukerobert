@@ -4,9 +4,9 @@ const offers = [
     {
         number: '01',
         icon: Download,
-        title: 'Free music + sound effects',
-        description: 'Useful audio for video editors, filmmakers, podcasters, YouTubers, and anyone shaping a story. Listen, download, and build under a creator-friendly license.',
-        action: 'Explore free audio',
+        title: 'Free sound library',
+        description: 'Free licensed music, film sound effects, ambiences, and textures made for edits, podcasts, YouTube, games, and stories in progress.',
+        action: 'Explore the library',
         href: '#audio-grid',
         className: 'bg-[#11151b] border-[#29323d] hover:border-[#d6a461]/60',
         iconClass: 'bg-[#d6a461] text-[#0a0c10]',
@@ -15,9 +15,9 @@ const offers = [
     {
         number: '02',
         icon: PackageOpen,
-        title: 'Premium packs',
-        description: 'When you need a deeper palette, find carefully made collections of production-ready music and sound effects on Buy Me a Coffee.',
-        action: 'Find premium packs',
+        title: 'Premium audio packs',
+        description: 'Go deeper with engineered sample libraries and production-ready collections of music and sound effects, available on Buy Me a Coffee.',
+        action: 'Browse premium packs',
         href: 'https://buymeacoffee.com/lukerobert/extras',
         className: 'bg-[#d6a461] border-[#d6a461] text-[#0a0c10] hover:bg-[#e5c58b]',
         iconClass: 'bg-[#0a0c10] text-[#d6a461]',
@@ -26,9 +26,9 @@ const offers = [
     {
         number: '03',
         icon: BriefcaseBusiness,
-        title: 'Audio engineering help',
-        description: 'Need a mix, master, custom sound design pass, or original piece? Bring Luke into the project and make the final signal count.',
-        action: 'Work with Luke',
+        title: 'Music + sound engineering',
+        description: 'Composition, recording, editing, mixing, mastering, and custom sound design for projects that need the audio to carry its weight.',
+        action: 'Bring Luke in',
         href: 'https://lukerobert.me',
         className: 'bg-[#11151b] border-[#29323d] hover:border-[#91a8b3]/70',
         iconClass: 'bg-[#91a8b3] text-[#0a0c10]',
@@ -41,10 +41,10 @@ export default function AudioOffers() {
         <section id="offers" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
             <div className="mb-8 flex flex-col gap-2 border-b border-[#29323d] pb-6 sm:flex-row sm:items-end sm:justify-between">
                 <h2 className="text-2xl font-extrabold text-[#f0ece4] sm:text-3xl">
-                    Start with what you need.
+                    Find the right sound.
                 </h2>
                 <p className="max-w-sm text-sm leading-6 text-[#89929d]">
-                    Free tools for creators, premium packs for deeper work, and a sound engineer when you need one.
+                    A working audio library from an engineer and artist: free sounds, premium packs, and hands-on audio work.
                 </p>
             </div>
 

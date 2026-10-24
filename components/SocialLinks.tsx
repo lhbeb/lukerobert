@@ -25,15 +25,15 @@ export default function EmailSection() {
                     <Mail size={24} className="text-[#d6a461]" />
                 </div>
 
-                <h2 className="text-2xl font-bold text-white mb-2">Keep making. Keep listening.</h2>
+                <h2 className="text-2xl font-bold text-white mb-2">Stay close to the signal.</h2>
                 <p className="text-sm text-gray-400 mb-7 max-w-sm mx-auto leading-relaxed">
-                    Get new free sounds, creator-friendly releases, and occasional notes from the Luke Robert studio.
+                    Get new free sounds, audio pack releases, and occasional notes from the Luke Robert studio.
                 </p>
 
                 {submitted ? (
                     <div className="flex items-center justify-center gap-2 text-[#d6a461] font-semibold">
                         <CheckCircle2 size={20} />
-                        You&apos;re in. New sounds are on the way.
+                        You&apos;re in. The next sounds are on the way.
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

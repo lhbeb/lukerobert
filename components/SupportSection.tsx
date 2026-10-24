@@ -28,26 +28,26 @@ export default function SupportSection() {
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 rounded-full border border-[#d6a461] bg-[#d6a461] px-3 py-1 mb-6">
                             <Coffee size={13} className="text-[#0a0c10]" />
-                            <span className="text-xs font-semibold uppercase tracking-wide text-[#0a0c10]">Keep the library open</span>
+                            <span className="text-xs font-semibold uppercase tracking-wide text-[#0a0c10]">Support independent audio</span>
                         </div>
 
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
-                            More room to make{' '}
+                            Keep good sound in circulation{' '}
                             <span className="bg-gradient-to-r from-[#d6a461] to-[#91a8b3] bg-clip-text text-transparent">
-                                better work
+                                for everyone
                             </span>
                         </h2>
 
                         <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed mb-8">
                             <p>
-                                I&apos;m Luke Anthony Robert — a sound engineer and artist building a practical, generous audio library for people making videos, films, podcasts, games, and YouTube.
-                                This is where I leave the doors open and share the sounds I make along the way.
+                                I&apos;m Luke Anthony Robert — a sound engineer and artist who composes, records, edits, mixes, masters, designs sound, and builds production-ready audio packs.
+                                This library is where I leave the doors open and share the sounds I make along the way.
                             </p>
                             <p>
-                                Download free music, sound effects, ambiences, and textures for your next project. For deeper collections, premium packs live on Buy Me a Coffee. If this library helps you, a donation keeps new sounds coming and keeps the free shelf open to more creators.
+                                Download free music, sound effects, ambiences, and textures for your next project. For deeper collections, premium sample libraries live on Buy Me a Coffee. If the work helps your project, a donation funds more studio time, more releases, and more audio made available to the community.
                             </p>
                             <p className="text-white font-medium">
-                                Your support helps make useful audio easier to find, easier to use, and available to the next person who needs it.
+                                Your support keeps the signal moving from the studio to the people who need better sound.
                             </p>
                         </div>
 
