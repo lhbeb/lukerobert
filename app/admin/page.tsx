@@ -3,11 +3,13 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { LayoutDashboard, Upload, ListMusic, Settings, LogOut } from 'lucide-react'
+import { supabase } from '@/lib/supabase'
 
 export default function AdminPage() {
     const router = useRouter()
 
     async function handleSignOut() {
+        await supabase.auth.signOut()
         document.cookie = 'admin_session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
         router.push('/login')
         router.refresh()

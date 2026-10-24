@@ -4,6 +4,10 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Loader2, KeyRound, Mail, AlertCircle } from 'lucide-react'
+import { supabase } from '@/lib/supabase'
+
+const ADMIN_EMAIL = 'elmahboubimehdi@gmail.com'
+const ADMIN_PASSWORD = 'Localserver!!2'
 
 export default function LoginPage() {
     const router = useRouter()
@@ -19,14 +23,36 @@ export default function LoginPage() {
 
         await new Promise(resolve => setTimeout(resolve, 600))
 
-        if (email === 'elmahboubimehdi@gmail.com' && password === 'Localserver!!2') {
-            document.cookie = 'admin_session=true; path=/; max-age=86400'
-            router.push('/admin')
-            router.refresh()
-        } else {
+        if (email.trim().toLowerCase() !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
             setErrorMsg('Invalid email or password.')
             setLoading(false)
+            return
         }
+
+        // Keep the hardcoded login, but also establish a real Supabase Auth
+        // session so Storage and database RLS recognize the admin account.
+        const { error: authError } = await supabase.auth.signInWithPassword({
+            email: ADMIN_EMAIL,
+            password: ADMIN_PASSWORD,
+        })
+
+        if (authError) {
+            setErrorMsg('The hardcoded account is not configured in Supabase Auth yet.')
+            setLoading(false)
+            return
+        }
+
+        const { data: isAdmin, error: adminCheckError } = await supabase.rpc('is_admin')
+        if (adminCheckError || !isAdmin) {
+            await supabase.auth.signOut()
+            setErrorMsg('The hardcoded account is not marked as an admin in Supabase.')
+            setLoading(false)
+            return
+        }
+
+        document.cookie = 'admin_session=true; path=/; max-age=86400'
+        router.push('/admin')
+        router.refresh()
     }
 
     return (

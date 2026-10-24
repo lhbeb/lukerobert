@@ -368,12 +368,10 @@ create policy "Admins can delete paid audio files"
 
 commit;
 
--- -----------------------------------------------------------------------------
--- Run after creating your Auth user. Replace the email only.
--- This avoids guessing or manually copying a UUID.
--- -----------------------------------------------------------------------------
--- insert into public.profiles (id, display_name, role)
--- select id, 'Luke Robert', 'admin'
--- from auth.users
--- where lower(email) = lower('YOUR_SUPABASE_AUTH_EMAIL')
--- on conflict (id) do update set role = 'admin';
+-- The hardcoded application login uses this Supabase Auth account. This is a
+-- no-op until that Auth user exists, and creates the profile if it is missing.
+insert into public.profiles (id, display_name, role)
+select id, 'Luke Robert', 'admin'
+from auth.users
+where lower(email) = lower('elmahboubimehdi@gmail.com')
+on conflict (id) do update set role = 'admin';
