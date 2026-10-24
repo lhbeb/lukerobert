@@ -177,8 +177,8 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
 
 export default function AudioGridPlaceholder({
     limit,
-    title = "Latest Tracks",
-    subtitle = "Freshly added audio for your projects"
+    title = "Latest free audio",
+    subtitle = "Fresh sounds for the projects you are making"
 }: {
     limit?: number
     title?: string
@@ -251,7 +251,7 @@ export default function AudioGridPlaceholder({
             {loading && (
                 <div className="text-center py-20 text-gray-500 flex flex-col items-center">
                     <Loader2 className="animate-spin mb-4" size={30} />
-                    <p className="text-sm">Loading tracks from database...</p>
+                    <p className="text-sm">Loading free audio from the library...</p>
                 </div>
             )}
 
@@ -260,7 +260,7 @@ export default function AudioGridPlaceholder({
                 <div className="text-center py-20 text-gray-500 border border-[#29323d] border-dashed rounded-3xl bg-[#0a0c10]/50">
                     <p className="text-lg font-medium text-white mb-1">No tracks found</p>
                     <p className="text-sm">
-                        {query ? "Try a different keyword or browse all tracks." : "There are currently no tracks in the database."}
+                        {query ? "Try a different keyword or browse the full library." : "The free library is waiting for its first sounds."}
                     </p>
                 </div>
             )}

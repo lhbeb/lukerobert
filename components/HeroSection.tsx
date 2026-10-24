@@ -15,22 +15,22 @@ export default function ProfileHero() {
                         <div className="relative z-10">
                             <div className="flex flex-wrap items-center gap-3">
                                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#e5c58b] bg-[#d6a461] px-3 py-1.5 text-[11px] font-extrabold text-[#0a0c10] shadow-sm shadow-[#d6a461]/25">
-                                    <Music2 size={11} /> Sound Engineer &amp; Artist
+                                    <Music2 size={11} /> Sound engineer · artist · creator resource
                                 </span>
-                                <span className="text-[11px] font-bold tracking-[0.12em] text-[#a8b2bd]">Free library · paid packs · custom work</span>
+                                <span className="text-[11px] font-bold tracking-[0.12em] text-[#a8b2bd]">Free audio for videos · films · podcasts · YouTube</span>
                             </div>
 
                             <h1 className="mt-6 max-w-3xl text-5xl font-semibold leading-[0.94] text-[#f0ece4] sm:text-6xl lg:text-8xl">
-                                Better sound
-                                <span className="block text-[#d6a461]">starts here.</span>
+                                Make something
+                                <span className="block text-[#d6a461]">worth hearing.</span>
                             </h1>
 
                             <p className="mt-5 max-w-xl text-sm font-medium leading-7 text-[#89929d] sm:text-base">
-                                <span className="text-[#f0ece4]">@lukerobert</span> · Sound Engineer &amp; Artist · Music, sound effects, and production-ready packs
+                                <span className="text-[#f0ece4]">@lukerobert</span> · Free music, sound effects, and audio tools for creators
                             </p>
 
                             <p className="mt-7 max-w-xl text-base leading-8 text-[#c0c5cb] sm:text-lg">
-                                Luke Anthony Robert is a sound engineer and artist building honest, tactile audio for films, games, brands, and the spaces between genres. Start with free licensed music and sound effects, buy a focused pack, or bring the engineer into your session.
+                                Luke Anthony Robert makes useful, human audio for the people turning ideas into edits, episodes, scenes, and stories. Find free licensed music, movie-ready sound effects, ambiences, and textures here. For deeper collections, premium packs live on Buy Me a Coffee — and every bit of support helps keep the free library growing.
                             </p>
 
                             <div className="mt-8">
@@ -38,7 +38,7 @@ export default function ProfileHero() {
                                     href="#audio-grid"
                                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#d6a461] px-5 py-3.5 text-sm font-extrabold text-[#0a0c10] shadow-lg shadow-[#d6a461]/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b8894d]"
                                 >
-                                    Browse free sounds <ArrowRight size={16} />
+                                    Explore free audio <ArrowRight size={16} />
                                 </a>
                             </div>
 
@@ -71,7 +71,7 @@ export default function ProfileHero() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c10]/80 via-transparent to-[#0a0c10]/10" />
                                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                                     <div>
-                                        <div className="text-lg font-bold text-[#f0ece4]">Useful sound, with feeling</div>
+                                        <div className="text-lg font-bold text-[#f0ece4]">Sound for the story you&apos;re building</div>
                                     </div>
                                     <ArrowDownRight size={22} className="text-[#d6a461]" />
                                 </div>
@@ -97,7 +97,7 @@ export default function ProfileHero() {
                                         <span key={index} className="flex-1 rounded-full bg-[#d6a461]" style={{ height: `${height}%`, opacity: index % 3 === 0 ? 0.45 : 0.85 }} />
                                     ))}
                                 </div>
-                                <div className="mt-3 text-xs font-semibold text-[#c0c5cb]">Free sounds / paid packs / studio work</div>
+                                <div className="mt-3 text-xs font-semibold text-[#c0c5cb]">Free library / premium packs / engineering help</div>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@ export default function ProfileHero() {
                     <div className="mt-10 border-t border-[#29323d] pt-5">
                         <div className="flex items-center gap-2 text-sm font-semibold text-[#d5d8dc]">
                             <span className="h-2 w-2 rounded-full bg-[#d6a461] shadow-[0_0_0_4px_rgba(214,164,97,0.12)]" />
-                            Free music + sound effects under a creator-friendly license
+                            Free music + sound effects for creators under a clear license
                         </div>
                     </div>
                 </div>

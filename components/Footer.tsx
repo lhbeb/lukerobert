@@ -13,7 +13,7 @@ export default function Footer() {
                             <Image src="/logonew.svg" alt="Luke Robert" width={150} height={51} className="h-10 w-auto" />
                         </div>
                         <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
-                            Sound engineer, artist, and lifelong collector of strange textures. Free resources for the people making things.
+                            Sound engineer, artist, and open-handed resource for creators making videos, films, podcasts, games, and YouTube.
                         </p>
                         <a href="https://lukerobert.me" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-xs font-bold uppercase tracking-[0.18em] text-[#91a8b3] hover:text-[#f0ece4] transition-colors">
                             lukerobert.me ↗

@@ -28,28 +28,26 @@ export default function SupportSection() {
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 rounded-full border border-[#d6a461] bg-[#d6a461] px-3 py-1 mb-6">
                             <Coffee size={13} className="text-[#0a0c10]" />
-                            <span className="text-xs font-semibold uppercase tracking-wide text-[#0a0c10]">Support My Work</span>
+                            <span className="text-xs font-semibold uppercase tracking-wide text-[#0a0c10]">Keep the library open</span>
                         </div>
 
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
-                            Help Keep This Library{' '}
+                            More room to make{' '}
                             <span className="bg-gradient-to-r from-[#d6a461] to-[#91a8b3] bg-clip-text text-transparent">
-                                Free Forever
+                                better work
                             </span>
                         </h2>
 
                         <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed mb-8">
                             <p>
-                                I&apos;m Luke Anthony Robert — a sound engineer and artist making room for texture, movement, and happy accidents.
-                                This library is where I leave the doors open and share the sounds I make along the way.
+                                I&apos;m Luke Anthony Robert — a sound engineer and artist building a practical, generous audio library for people making videos, films, podcasts, games, and YouTube.
+                                This is where I leave the doors open and share the sounds I make along the way.
                             </p>
                             <p>
-                                If the work helps your project, you can support it through my Buy Me a Coffee page or commission a custom mix,
-                                master, sound design pass, or original piece through lukerobert.me.
+                                Download free music, sound effects, ambiences, and textures for your next project. For deeper collections, premium packs live on Buy Me a Coffee. If this library helps you, a donation keeps new sounds coming and keeps the free shelf open to more creators.
                             </p>
                             <p className="text-white font-medium">
-                                I truly appreciate your support and many thanks for helping me continue sharing
-                                creative resources with the community.
+                                Your support helps make useful audio easier to find, easier to use, and available to the next person who needs it.
                             </p>
                         </div>
 
@@ -80,7 +78,7 @@ export default function SupportSection() {
                                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 hover:border-[#d6a461]/50 text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 text-sm"
                             >
                                 <ShoppingBag size={17} />
-                                Visit Shop
+                                Browse premium packs
                             </a>
 
                         </div>

@@ -11,15 +11,15 @@ export default function HomePage() {
             {/* Profile Hero (cover + avatar + follow) */}
             <HeroSection />
 
-            {/* Clear entry points for free library, paid packs, and engineering work */}
+            {/* Clear entry points for free audio, premium packs, and engineering help */}
             <AudioOffers />
 
             {/* Latest free audio */}
             <Suspense fallback={<div className="mx-auto max-w-7xl px-4 py-16 text-sm text-[#a8b2bd] sm:px-6 lg:px-8">Loading audio library…</div>}>
                 <AudioGridPlaceholder
                     limit={4}
-                    title="Latest free sounds"
-                    subtitle="Licensed music, effects, textures, and ambiences ready for your projects"
+                    title="Free audio for your next project"
+                    subtitle="Licensed music, movie-ready effects, textures, and ambiences for edits, episodes, and stories"
                 />
             </Suspense>
 
@@ -34,8 +34,8 @@ export default function HomePage() {
             {/* Full free audio library */}
             <Suspense fallback={<div className="mx-auto max-w-7xl px-4 py-16 text-sm text-[#a8b2bd] sm:px-6 lg:px-8">Loading audio library…</div>}>
                 <AudioGridPlaceholder
-                    title="Free sound library"
-                    subtitle="Explore the full collection of music, sound effects, and sonic textures"
+                    title="Explore the free library"
+                    subtitle="Find music, sound effects, and sonic textures for videos, films, podcasts, YouTube, and more"
                 />
             </Suspense>
 
