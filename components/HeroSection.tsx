@@ -26,7 +26,7 @@ export default function ProfileHero() {
                             </h1>
 
                             <p className="mt-5 max-w-xl text-sm font-medium leading-7 text-[#89929d] sm:text-base">
-                                <span className="text-[#f0ece4]">@lukerobert</span> · Music, sound effects, ambient audio, and downloadable packs
+                                <span className="text-[#f0ece4]">Engineered and made by Luke Anthony Robert</span> · Music, sound effects, ambient audio, and downloadable packs
                             </p>
 
                             <p className="mt-7 max-w-xl text-base leading-8 text-[#c0c5cb] sm:text-lg">
