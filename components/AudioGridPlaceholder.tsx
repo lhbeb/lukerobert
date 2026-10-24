@@ -128,8 +128,8 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
                     aria-label={isPlaying ? `Pause ${track.title}` : `Play ${track.title}`}
                 >
                     {isPlaying
-                        ? <Pause size={15} className="text-white" fill="white" />
-                        : <Play size={15} className="text-white ml-0.5" fill="white" />
+                        ? <Pause size={15} className="text-[#0a0c10]" fill="#0a0c10" />
+                        : <Play size={15} className="text-[#0a0c10] ml-0.5" fill="#0a0c10" />
                     }
                 </button>
             </div>
@@ -164,7 +164,7 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
                 <button
                     id={`download-btn-${track.id}`}
                     onClick={handleDownload}
-                    className="mt-2 w-full inline-flex items-center justify-center gap-1.5 bg-[#0a0c10] hover:bg-[#d6a461]/10 border border-[#29323d] hover:border-[#d6a461]/50 text-gray-400 hover:text-[#d6a461] text-xs font-medium py-2 rounded-xl transition-all duration-200"
+                    className="mt-2 w-full inline-flex items-center justify-center gap-1.5 bg-[#d6a461] hover:bg-[#e5c58b] border border-[#d6a461] hover:border-[#e5c58b] text-[#0a0c10] text-xs font-bold py-2 rounded-xl transition-all duration-200 shadow-sm shadow-[#d6a461]/20"
                     aria-label={`Download ${track.title}`}
                 >
                     <Download size={12} />

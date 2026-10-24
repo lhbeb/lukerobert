@@ -123,7 +123,7 @@ export default function LoginPage() {
                     <button
                         type="submit"
                         disabled={!email || !password || loading}
-                        className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#b8894d] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-[#d6a461]/20 mt-8"
+                        className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#e5c58b] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-[#0a0c10] font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-[#d6a461]/20 mt-8"
                     >
                         {loading ? (
                             <><Loader2 className="animate-spin" size={18} /> Signing in...</>

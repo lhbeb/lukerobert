@@ -114,7 +114,7 @@ export default function ManagePage() {
                         <p className="mb-6 mt-1">You haven&apos;t uploaded any audio tracks yet.</p>
                         <Link
                             href="/admin/upload"
-                            className="inline-flex items-center justify-center bg-[#d6a461] hover:bg-[#b8894d] text-white font-semibold px-6 py-2.5 rounded-xl transition-all"
+                            className="inline-flex items-center justify-center bg-[#d6a461] hover:bg-[#e5c58b] text-[#0a0c10] font-bold px-6 py-2.5 rounded-xl transition-all"
                         >
                             Upload First Track
                         </Link>

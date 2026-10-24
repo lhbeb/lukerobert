@@ -278,7 +278,7 @@ export default function UploadPage() {
 
                             {file ? (
                                 <>
-                                    <div className="w-12 h-12 rounded-full bg-[#d6a461] text-white flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-3">
+                                    <div className="w-12 h-12 rounded-full bg-[#d6a461] text-[#0a0c10] flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-3">
                                         <FileAudio size={24} />
                                     </div>
                                     <p className="text-white font-medium text-center">{file.name}</p>
@@ -315,7 +315,7 @@ export default function UploadPage() {
 
                             {thumbnailStr ? (
                                 <>
-                                    <div className="w-10 h-10 rounded-full bg-[#d6a461] text-white flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-2">
+                                    <div className="w-10 h-10 rounded-full bg-[#d6a461] text-[#0a0c10] flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-2">
                                         <FileImage size={20} />
                                     </div>
                                     <p className="text-white font-medium text-center text-sm">{thumbnailStr.name}</p>
@@ -382,7 +382,7 @@ export default function UploadPage() {
                         <button
                             type="submit"
                             disabled={!file || !title || uploading || success}
-                            className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#b8894d] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-[#d6a461]/20"
+                            className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#e5c58b] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-[#0a0c10] font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#d6a461]/20"
                         >
                             {uploading ? (
                                 <>
