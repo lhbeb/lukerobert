@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { Menu, X, Headphones, Archive, PackageOpen, Coffee, Search } from 'lucide-react'
+import { Menu, X, Headphones, Archive, PackageOpen, Search } from 'lucide-react'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -65,15 +65,6 @@ export default function Navbar() {
                             <PackageOpen size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
                             <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Shop</span>
                         </a>
-                        <a
-                            href="https://buymeacoffee.com/lukerobert"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group/link flex items-center gap-2 rounded-lg px-3 py-2"
-                        >
-                            <Coffee size={15} className="shrink-0 text-[#a8b2bd] transition-colors group-hover/link:text-[#d6a461]" />
-                            <span className="text-sm font-semibold text-[#d5d8dc] transition-colors group-hover/link:text-[#f0ece4]">Support</span>
-                        </a>
                     </div>
 
                     <div className="ml-auto hidden w-full max-w-[19rem] md:flex xl:max-w-[22rem]">
@@ -98,6 +89,23 @@ export default function Navbar() {
                     >
                         {menuOpen ? <X size={21} /> : <Menu size={21} />}
                     </button>
+
+                    <a
+                        href="https://buymeacoffee.com/lukerobert"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Donate to Luke Robert on Buy Me a Coffee"
+                        title="Support Luke Robert"
+                        className="group/coffee ml-auto flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[#ffd400]/70 bg-[#ffd400] shadow-[0_0_0_3px_rgba(255,212,0,0.08)] transition-transform duration-200 hover:-translate-y-0.5 hover:scale-105 hover:shadow-[0_0_0_5px_rgba(255,212,0,0.14)] xl:ml-2"
+                    >
+                        <Image
+                            src="/buy-me-a-coffee.png"
+                            alt=""
+                            width={48}
+                            height={48}
+                            className="h-full w-full object-cover"
+                        />
+                    </a>
                 </div>
             </div>
 
@@ -142,7 +150,13 @@ export default function Navbar() {
                                 onClick={closeMenu}
                                 className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-[#d5d8dc] transition-colors hover:bg-[#11151b] hover:text-[#f0ece4]"
                             >
-                                <Coffee size={16} className="text-[#d6a461]" />
+                                <Image
+                                    src="/buy-me-a-coffee.png"
+                                    alt=""
+                                    width={22}
+                                    height={22}
+                                    className="h-5 w-5 rounded-md object-cover"
+                                />
                                 Support
                             </a>
                         </div>
