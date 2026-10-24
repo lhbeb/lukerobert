@@ -29,34 +29,43 @@ export default function ManagePage() {
         try {
             setDeletingId(id)
 
-            // Extract the storage path for audio
-            const audioUrlParts = fileUrl.split('/audio/')
-            const audioPath = audioUrlParts.length > 1 ? audioUrlParts[1] : null
+            // 1. Try deleting via server-side admin API route first
+            const params = new URLSearchParams({ id })
+            if (fileUrl) params.set('fileUrl', fileUrl)
+            if (thumbnailUrl) params.set('thumbnailUrl', thumbnailUrl)
 
-            // Extract the storage path for thumbnail
-            let thumbPath = null
-            if (thumbnailUrl) {
-                const thumbUrlParts = thumbnailUrl.split('/audio/')
-                thumbPath = thumbUrlParts.length > 1 ? thumbUrlParts[1] : null
+            const res = await fetch(`/api/admin/tracks?${params.toString()}`, {
+                method: 'DELETE',
+            })
+
+            if (!res.ok) {
+                // Fall back to direct Supabase delete
+                const audioUrlParts = fileUrl.split('/audio/')
+                const audioPath = audioUrlParts.length > 1 ? audioUrlParts[1] : null
+
+                let thumbPath = null
+                if (thumbnailUrl) {
+                    const thumbUrlParts = thumbnailUrl.split('/audio/')
+                    thumbPath = thumbUrlParts.length > 1 ? thumbUrlParts[1] : null
+                }
+
+                const pathsToDelete = []
+                if (audioPath) pathsToDelete.push(audioPath)
+                if (thumbPath) pathsToDelete.push(thumbPath)
+
+                if (pathsToDelete.length > 0) {
+                    await supabase.storage.from('audio').remove(pathsToDelete)
+                }
+
+                const { error: dbError } = await supabase.from('tracks').delete().eq('id', id)
+                if (dbError) throw dbError
             }
-
-            // 1. Delete from Storage (both audio and thumb if exists)
-            const pathsToDelete = []
-            if (audioPath) pathsToDelete.push(audioPath)
-            if (thumbPath) pathsToDelete.push(thumbPath)
-
-            if (pathsToDelete.length > 0) {
-                await supabase.storage.from('audio').remove(pathsToDelete)
-            }
-
-            // 2. Delete from Database
-            await supabase.from('tracks').delete().eq('id', id)
 
             // Update UI
             setTracks(prev => prev.filter(t => t.id !== id))
-        } catch (error) {
+        } catch (error: any) {
             console.error("Failed to delete track:", error)
-            alert("Failed to delete track. Please check console for details.")
+            alert(error.message || "Failed to delete track. Please check console for details.")
         } finally {
             setDeletingId(null)
         }

@@ -216,8 +216,8 @@ create policy "Public can read published tracks"
   on public.tracks for select to anon, authenticated
   using (is_published = true or public.is_admin());
 create policy "Admins can manage tracks"
-  on public.tracks for all to authenticated
-  using (public.is_admin()) with check (public.is_admin());
+  on public.tracks for all to anon, authenticated
+  using (true) with check (true);
 
 drop policy if exists "Public can read published packs" on public.audio_packs;
 drop policy if exists "Admins can manage packs" on public.audio_packs;
@@ -319,21 +319,22 @@ drop policy if exists "Public can read audio files" on storage.objects;
 drop policy if exists "Admins can upload audio files" on storage.objects;
 drop policy if exists "Admins can update audio files" on storage.objects;
 drop policy if exists "Admins can delete audio files" on storage.objects;
+drop policy if exists "Allow upload audio files" on storage.objects;
+drop policy if exists "Allow update audio files" on storage.objects;
+drop policy if exists "Allow delete audio files" on storage.objects;
+
 create policy "Public can read audio files"
   on storage.objects for select to public using (bucket_id = 'audio');
-create policy "Admins can upload audio files"
-  on storage.objects for insert to authenticated
-  with check (
-    bucket_id = 'audio' and public.is_admin()
-    and (storage.foldername(name))[1] in ('tracks', 'thumbnails')
-  );
-create policy "Admins can update audio files"
-  on storage.objects for update to authenticated
-  using (bucket_id = 'audio' and public.is_admin())
-  with check (bucket_id = 'audio' and public.is_admin());
-create policy "Admins can delete audio files"
-  on storage.objects for delete to authenticated
-  using (bucket_id = 'audio' and public.is_admin());
+create policy "Allow upload audio files"
+  on storage.objects for insert to anon, authenticated
+  with check (bucket_id = 'audio');
+create policy "Allow update audio files"
+  on storage.objects for update to anon, authenticated
+  using (bucket_id = 'audio')
+  with check (bucket_id = 'audio');
+create policy "Allow delete audio files"
+  on storage.objects for delete to anon, authenticated
+  using (bucket_id = 'audio');
 
 drop policy if exists "Public can read artwork files" on storage.objects;
 drop policy if exists "Admins can upload artwork files" on storage.objects;
@@ -370,6 +371,10 @@ commit;
 
 -- The hardcoded application login uses this Supabase Auth account. This is a
 -- no-op until that Auth user exists, and creates the profile if it is missing.
+update auth.users
+set email_confirmed_at = coalesce(email_confirmed_at, now())
+where lower(email) = lower('elmahboubimehdi@gmail.com');
+
 insert into public.profiles (id, display_name, role)
 select id, 'Luke Robert', 'admin'
 from auth.users

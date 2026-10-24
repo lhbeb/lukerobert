@@ -56,6 +56,73 @@ export default function UploadPage() {
         }
     }
 
+    async function uploadFileToStorage(fileToUpload: File, targetPath: string): Promise<string> {
+        // 1. Attempt direct Supabase upload first
+        try {
+            const { error: directError } = await supabase.storage
+                .from('audio')
+                .upload(targetPath, fileToUpload, {
+                    cacheControl: '3600',
+                    upsert: true,
+                })
+
+            if (!directError) {
+                const { data: { publicUrl } } = supabase.storage.from('audio').getPublicUrl(targetPath)
+                return publicUrl
+            }
+        } catch {
+            // fall through to API route
+        }
+
+        // 2. Fall back to server-side admin upload route
+        const formData = new FormData()
+        formData.append('file', fileToUpload)
+        formData.append('filePath', targetPath)
+
+        const res = await fetch('/api/admin/upload', {
+            method: 'POST',
+            body: formData,
+        })
+
+        const result = await res.json()
+        if (!res.ok || !result.publicUrl) {
+            throw new Error(result.error || 'Failed to upload file to storage')
+        }
+
+        return result.publicUrl
+    }
+
+    async function insertTrackRecord(trackData: {
+        title: string
+        category: string
+        file_url: string
+        thumbnail_url: string | null
+        duration: string
+    }) {
+        // 1. Try direct Supabase insert
+        try {
+            const { error: dbError } = await supabase
+                .from('tracks')
+                .insert(trackData)
+
+            if (!dbError) return
+        } catch {
+            // fall through to API route
+        }
+
+        // 2. Fall back to server-side admin tracks route
+        const res = await fetch('/api/admin/tracks', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(trackData),
+        })
+
+        const result = await res.json()
+        if (!res.ok) {
+            throw new Error(result.error || 'Failed to insert track into database')
+        }
+    }
+
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
         if (!file || !title) {
@@ -66,55 +133,34 @@ export default function UploadPage() {
         try {
             setUploading(true)
             setErrorMsg('')
-            setProgress(10)
+            setProgress(15)
 
-            // 1. Upload to Supabase Storage
+            // 1. Upload audio file
             const fileExt = file.name.split('.').pop()
             const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
             const filePath = `tracks/${fileName}`
 
-            const { error: uploadError, data: uploadData } = await supabase.storage
-                .from('audio')
-                .upload(filePath, file, {
-                    cacheControl: '3600',
-                    upsert: false
-                })
-
-            if (uploadError) throw new Error(`Storage error: ${uploadError.message}`)
-
-            // 2. Get Public URL for the audio file
-            const { data: { publicUrl: audioPublicUrl } } = supabase.storage.from('audio').getPublicUrl(filePath)
+            const audioPublicUrl = await uploadFileToStorage(file, filePath)
             setProgress(60)
 
-            // 3. Upload Thumbnail to Supabase Storage (if provided)
-            let thumbnailUrl = null
+            // 2. Upload Thumbnail to Supabase Storage (if provided)
+            let thumbnailUrl: string | null = null
             if (thumbnailStr) {
                 const thumbExt = thumbnailStr.name.split('.').pop()
                 const thumbName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${thumbExt}`
                 const thumbPath = `thumbnails/${thumbName}`
-
-                const { error: thumbError } = await supabase.storage
-                    .from('audio') // reusing the public 'audio' bucket for thumbnails too
-                    .upload(thumbPath, thumbnailStr, { cacheControl: '3600', upsert: false })
-
-                if (thumbError) throw new Error(`Thumbnail storage error: ${thumbError.message}`)
-                const { data } = supabase.storage.from('audio').getPublicUrl(thumbPath)
-                thumbnailUrl = data.publicUrl
+                thumbnailUrl = await uploadFileToStorage(thumbnailStr, thumbPath)
             }
-            setProgress(80)
+            setProgress(85)
 
-            // 4. Insert into Database
-            const { error: dbError } = await supabase
-                .from('tracks')
-                .insert({
-                    title,
-                    category,
-                    file_url: audioPublicUrl,
-                    thumbnail_url: thumbnailUrl,
-                    duration: durationStr
-                })
-
-            if (dbError) throw new Error(`Database error: ${dbError.message}`)
+            // 3. Insert into Database
+            await insertTrackRecord({
+                title,
+                category,
+                file_url: audioPublicUrl,
+                thumbnail_url: thumbnailUrl,
+                duration: durationStr,
+            })
 
             setProgress(100)
             setSuccess(true)
