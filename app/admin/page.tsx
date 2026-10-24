@@ -9,7 +9,11 @@ export default function AdminPage() {
     const router = useRouter()
 
     async function handleSignOut() {
-        await supabase.auth.signOut()
+        try {
+            await supabase.auth.signOut()
+        } catch {
+            // ignore
+        }
         document.cookie = 'admin_session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
         router.push('/login')
         router.refresh()
