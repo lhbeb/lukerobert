@@ -61,10 +61,16 @@ export default function SupportSection() {
                                 rel="noopener noreferrer"
                                 id="support-buymeacoffee-btn"
                                 aria-label="Support Luke Robert on Buy Me a Coffee"
-                                className="inline-flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#b8894d] text-[#0a0c10] font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 text-sm shadow-lg shadow-[#d6a461]/25 hover:scale-105"
+                                className="group inline-flex h-14 w-full max-w-[20rem] items-center justify-center overflow-hidden rounded-2xl bg-[#ffd400] shadow-lg shadow-[#ffd400]/20 transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[#ffd400]/35 sm:w-[20rem]"
                             >
-                                <Coffee size={17} />
-                                Support on BuyMeACoffee
+                                <Image
+                                    src="/buy-me-a-coffee-button.png"
+                                    alt="Buy Me a Coffee"
+                                    width={640}
+                                    height={180}
+                                    sizes="(max-width: 640px) 100vw, 320px"
+                                    className="h-full w-full object-contain"
+                                />
                             </a>
                             <a
                                 href="https://buymeacoffee.com/lukerobert/extras"
