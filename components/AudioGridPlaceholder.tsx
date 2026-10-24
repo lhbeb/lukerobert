@@ -164,10 +164,10 @@ function AudioCard({ track, activeId, onPlay }: { track: Track; activeId: string
                 <button
                     id={`download-btn-${track.id}`}
                     onClick={handleDownload}
-                    className="mt-2 w-full inline-flex items-center justify-center gap-1.5 bg-[#d6a461] hover:bg-[#e5c58b] border border-[#d6a461] hover:border-[#e5c58b] text-[#0a0c10] text-xs font-bold py-2 rounded-xl transition-all duration-200 shadow-sm shadow-[#d6a461]/20"
+                    className="mt-2 w-full inline-flex items-center justify-center gap-1.5 bg-[#d6a461] hover:bg-[#e5c58b] border border-[#d6a461] hover:border-[#e5c58b] text-[#0a0c10] text-xs font-black py-2.5 rounded-xl transition-all duration-200 shadow-sm shadow-[#d6a461]/25 cursor-pointer"
                     aria-label={`Download ${track.title}`}
                 >
-                    <Download size={12} />
+                    <Download size={13} className="text-[#0a0c10] stroke-[2.5]" />
                     Download MP3
                 </button>
             </div>

@@ -58,17 +58,29 @@
   .glow-brass { box-shadow: 0 0 28px rgba(214, 164, 97, 0.22); }
 }
 
-/* Re-skin legacy utility classes across secondary pages too. */
-[class*="bg-[#0a0c10]"] { background-color: #0a0c10 !important; }
-[class*="bg-[#11151b]"] { background-color: #11151b !important; }
-[class*="border-[#29323d]"] { border-color: #29323d !important; }
-[class*="bg-[#d6a461]"] { background-color: #d6a461 !important; }
-[class*="text-[#d6a461]"] { color: #e5c58b !important; }
-[class*="border-[#d6a461]"] { border-color: rgba(214,164,97,.55) !important; }
-[class*="bg-[#91a8b3]"] { background-color: #91a8b3 !important; }
-[class*="text-[#91a8b3]"] { color: #91a8b3 !important; }
-[class*="hover:bg-[#b8894d]"]:hover { background-color: #b8894d !important; }
-[class*="hover:bg-[#d6a461]"]:hover { background-color: #d6a461 !important; }
-[class*="hover:border-[#d6a461]"]:hover { border-color: rgba(214,164,97,.72) !important; }
-[class*="focus:border-[#d6a461]"]:focus { border-color: #d6a461 !important; }
+/* Ensure maximum contrast (deep black/charcoal text) on all brass/brown/gold buttons & actions */
+.btn-primary,
+button.btn-primary,
+a.btn-primary,
+button[class*="bg-[#d6a461]"],
+a[class*="bg-[#d6a461]"],
+button[class*="bg-[#b8894d]"],
+a[class*="bg-[#b8894d]"],
+button[class*="bg-[#e5c58b]"],
+a[class*="bg-[#e5c58b]"] {
+  color: #0a0c10 !important;
+  font-weight: 800 !important;
+}
+
+button[class*="bg-[#d6a461]"] svg,
+a[class*="bg-[#d6a461]"] svg,
+button[class*="bg-[#b8894d]"] svg,
+a[class*="bg-[#b8894d]"] svg,
+button[class*="bg-[#e5c58b]"] svg,
+a[class*="bg-[#e5c58b]"] svg,
+.btn-primary svg {
+  color: #0a0c10 !important;
+  stroke: #0a0c10 !important;
+}
+
 

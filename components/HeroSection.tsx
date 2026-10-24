@@ -36,9 +36,9 @@ export default function ProfileHero() {
                             <div className="mt-8">
                                 <a
                                     href="#audio-grid"
-                                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#d6a461] px-5 py-3.5 text-sm font-extrabold text-[#0a0c10] shadow-lg shadow-[#d6a461]/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b8894d]"
+                                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#d6a461] px-5 py-3.5 text-sm font-black text-[#0a0c10] shadow-lg shadow-[#d6a461]/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#e5c58b] cursor-pointer"
                                 >
-                                    Explore free audio <ArrowRight size={16} />
+                                    Explore free audio <ArrowRight size={16} className="text-[#0a0c10] stroke-[2.5]" />
                                 </a>
                             </div>
 

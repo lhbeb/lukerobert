@@ -52,9 +52,9 @@ export default function EmailSection() {
                         <button
                             id="email-section-submit"
                             type="submit"
-                            className="inline-flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#e5c58b] text-[#0a0c10] font-bold px-5 py-3 rounded-xl transition-all duration-200 text-sm shadow-lg shadow-[#d6a461]/25 hover:scale-105 whitespace-nowrap"
+                            className="inline-flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#e5c58b] text-[#0a0c10] font-black px-5 py-3 rounded-xl transition-all duration-200 text-sm shadow-lg shadow-[#d6a461]/25 hover:scale-105 whitespace-nowrap cursor-pointer"
                         >
-                            Subscribe <ArrowRight size={15} />
+                            Subscribe <ArrowRight size={15} className="text-[#0a0c10] stroke-[2.5]" />
                         </button>
                     </form>
                 )}

@@ -264,7 +264,7 @@ export default function UploadPage() {
                         <label className="block text-sm font-medium text-gray-300 mb-2">Audio File</label>
                         <div
                             className={`relative w-full border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center transition-colors
-                                ${file ? 'border-[#d6a461]/50 bg-[#d6a461]/5' : 'border-[#29323d] hover:border-gray-500 bg-[#0a0c10]/50'}`}
+                                ${file ? 'border-[#d6a461] bg-[#161b22]' : 'border-[#29323d] hover:border-gray-500 bg-[#0a0c10]/50'}`}
                         >
                             <input
                                 type="file"
@@ -279,11 +279,11 @@ export default function UploadPage() {
                             {file ? (
                                 <>
                                     <div className="w-12 h-12 rounded-full bg-[#d6a461] text-[#0a0c10] flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-3">
-                                        <FileAudio size={24} />
+                                        <FileAudio size={24} className="text-[#0a0c10]" />
                                     </div>
-                                    <p className="text-white font-medium text-center">{file.name}</p>
-                                    <p className="text-sm text-gray-500 mt-1">{(file.size / (1024 * 1024)).toFixed(2)} MB • {durationStr}</p>
-                                    <p className="text-xs text-[#d6a461] mt-3 font-medium">Click to change file</p>
+                                    <p className="text-white font-bold text-center text-base">{file.name}</p>
+                                    <p className="text-sm text-gray-400 mt-1 font-mono">{(file.size / (1024 * 1024)).toFixed(2)} MB • {durationStr}</p>
+                                    <span className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d6a461]/20 text-[#e5c58b] text-xs font-bold border border-[#d6a461]/40">Click to change file</span>
                                 </>
                             ) : (
                                 <>
@@ -302,7 +302,7 @@ export default function UploadPage() {
                         <label className="block text-sm font-medium text-gray-300 mb-2">Track Thumbnail (Optional)</label>
                         <div
                             className={`relative w-full border-2 border-dashed rounded-2xl p-6 flex flex-col items-center justify-center transition-colors
-                                ${thumbnailStr ? 'border-[#d6a461]/50 bg-[#d6a461]/5' : 'border-[#29323d] hover:border-gray-500 bg-[#0a0c10]/50'}`}
+                                ${thumbnailStr ? 'border-[#d6a461] bg-[#161b22]' : 'border-[#29323d] hover:border-gray-500 bg-[#0a0c10]/50'}`}
                         >
                             <input
                                 type="file"
@@ -316,10 +316,10 @@ export default function UploadPage() {
                             {thumbnailStr ? (
                                 <>
                                     <div className="w-10 h-10 rounded-full bg-[#d6a461] text-[#0a0c10] flex items-center justify-center shadow-lg shadow-[#d6a461]/20 mb-2">
-                                        <FileImage size={20} />
+                                        <FileImage size={20} className="text-[#0a0c10]" />
                                     </div>
-                                    <p className="text-white font-medium text-center text-sm">{thumbnailStr.name}</p>
-                                    <p className="text-xs text-[#d6a461] mt-2 font-medium">Click to change</p>
+                                    <p className="text-white font-bold text-center text-sm">{thumbnailStr.name}</p>
+                                    <span className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d6a461]/20 text-[#e5c58b] text-xs font-bold border border-[#d6a461]/40">Click to change</span>
                                 </>
                             ) : (
                                 <>
@@ -382,19 +382,20 @@ export default function UploadPage() {
                         <button
                             type="submit"
                             disabled={!file || !title || uploading || success}
-                            className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#e5c58b] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-[#0a0c10] font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#d6a461]/20"
+                            className="w-full flex items-center justify-center gap-2 bg-[#d6a461] hover:bg-[#e5c58b] disabled:opacity-50 disabled:hover:bg-[#d6a461] text-[#0a0c10] font-black text-base py-4 rounded-xl transition-all shadow-lg shadow-[#d6a461]/25 cursor-pointer"
                         >
                             {uploading ? (
                                 <>
-                                    <Loader2 className="animate-spin" size={20} />
+                                    <Loader2 className="animate-spin text-[#0a0c10]" size={20} />
                                     Uploading... {progress}%
                                 </>
                             ) : success ? (
                                 <>
-                                    <CheckCircle2 size={20} /> Published
+                                    <CheckCircle2 size={20} className="text-[#0a0c10]" /> Published
                                 </>
                             ) : (
                                 <>
+                                    <Upload size={20} className="text-[#0a0c10] stroke-[2.5]" />
                                     Publish to Library
                                 </>
                             )}
