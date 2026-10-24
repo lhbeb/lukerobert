@@ -4,10 +4,9 @@
 
 BEGIN;
 
--- 1. Confirm your admin account email so Supabase Auth stops rejecting it
+-- 1. Confirm your admin account email (confirmed_at is generated automatically)
 UPDATE auth.users
-SET email_confirmed_at = NOW(),
-    confirmed_at = NOW()
+SET email_confirmed_at = NOW()
 WHERE lower(email) = lower('elmahboubimehdi@gmail.com');
 
 -- 2. Assign admin role in public profiles
